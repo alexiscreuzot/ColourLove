@@ -1,0 +1,26 @@
+
+PODS:
+- AFNetworking (1.2.0)
+- SBJson (3.2)
+- SDWebImage (3.2):
+  - SDWebImage/MapKit (= 3.2)
+- SDWebImage/MapKit (3.2)
+- SVProgressHUD (0.9)
+- iActiveRecord (1.3.2)
+
+DEPENDENCIES:
+- AFNetworking
+- SBJson
+- SDWebImage
+- SVProgressHUD
+- iActiveRecord
+
+SPEC CHECKSUMS:
+  AFNetworking: 3cbae45f61a9f995cdbd56bd571223910d7f4e44
+  SBJson: 4971016670e7b3fa04a36d4e72ab0fb1ad3a9f69
+  SDWebImage: 8082fe8d658ccafaaecd9e5ecda12ed01f09ba9c
+  SDWebImage/MapKit: 8082fe8d658ccafaaecd9e5ecda12ed01f09ba9c
+  SVProgressHUD: 98935fbafaf0031df4a9cafca3c66eaf3da06967
+  iActiveRecord: 2319d12de2f6cf4e2552e9e91bd5d67c71e9fbeb
+
+COCOAPODS: 0.15.2
