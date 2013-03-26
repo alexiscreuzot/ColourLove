@@ -1,1 +1,0 @@
-../../iActiveRecord/iActiveRecord/ARSchemaManager.h

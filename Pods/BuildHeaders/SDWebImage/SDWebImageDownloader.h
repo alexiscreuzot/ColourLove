@@ -1,1 +1,1 @@
-../../SDWebImage/SDWebImage/SDWebImageDownloader.h
+../../SDWebImage/SDWebImageDownloader.h

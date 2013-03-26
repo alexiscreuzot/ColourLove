@@ -30,10 +30,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#if !__has_feature(objc_arc)
-#error "This source file must be compiled with ARC enabled!"
-#endif
-
 #import "SBJsonStreamWriter.h"
 #import "SBJsonStreamWriterState.h"
 
@@ -56,8 +52,8 @@ static NSNumber *kNegativeInfinity;
 
 + (void)initialize {
 	kNotANumber = [NSDecimalNumber notANumber];
-    kPositiveInfinity = [NSNumber numberWithDouble:+HUGE_VAL];
-    kNegativeInfinity = [NSNumber numberWithDouble:-HUGE_VAL];
+    kPositiveInfinity = [NSNumber numberWithDouble:+INFINITY];
+    kNegativeInfinity = [NSNumber numberWithDouble:-INFINITY];
     kTrue = [NSNumber numberWithBool:YES];
     kFalse = [NSNumber numberWithBool:NO];
 }

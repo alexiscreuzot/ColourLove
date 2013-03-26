@@ -13,9 +13,8 @@
     #import <Foundation/Foundation.h>
 
 // Third parties frameworks
-#import <SBJson/SBJson.h>
+#import <SBJson/SBJSON.h>
 #import <AFNetworking/AFNetworking.h>
-#import <iActiveRecord/ActiveRecord.h>
 #import <SDWebImage/SDWebImageManager.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 

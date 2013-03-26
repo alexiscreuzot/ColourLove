@@ -10,15 +10,20 @@
 
 #import "ColorsVC.h"
 
-@implementation AppDelegate
+@implementation AppDelegate{
+    UINavigationController * navigationController;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    self.viewController = [[ColorsVC alloc] initWithNibName:@"ColorsVC" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    
+    ColorsVC * colorController = [[ColorsVC alloc] init];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:colorController];
+    
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

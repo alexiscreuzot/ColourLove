@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9FDDB8BD530445FE8D195FC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2612F0177EA8454995B86709 /* libPods.a */; };
+		FA2A550C170175F60030C203 /* ColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A550B170175F60030C203 /* ColorCell.xib */; };
+		FA2A551A170177840030C203 /* ColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A5519170177840030C203 /* ColorCell.m */; };
+		FA2A551E17017F6D0030C203 /* UIColor+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */; };
+		FA2A5522170180310030C203 /* ColorDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A5520170180310030C203 /* ColorDetailVC.m */; };
+		FA2A5523170180310030C203 /* ColorDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A5521170180310030C203 /* ColorDetailVC.xib */; };
+		FA33AB8A17007E7C00C05C17 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = FA33AB8917007E7C00C05C17 /* Color.m */; };
 		FA40EC241666A8670005052F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA40EC231666A8670005052F /* UIKit.framework */; };
 		FA40EC261666A8670005052F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA40EC251666A8670005052F /* Foundation.framework */; };
 		FA40EC281666A8670005052F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA40EC271666A8670005052F /* CoreGraphics.framework */; };
@@ -24,6 +30,16 @@
 /* Begin PBXFileReference section */
 		2612F0177EA8454995B86709 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D177F149CB4B412C8378F8E0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FA2A550B170175F60030C203 /* ColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorCell.xib; sourceTree = "<group>"; };
+		FA2A5518170177840030C203 /* ColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCell.h; sourceTree = "<group>"; };
+		FA2A5519170177840030C203 /* ColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorCell.m; sourceTree = "<group>"; };
+		FA2A551C17017F6D0030C203 /* UIColor+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utilities.h"; sourceTree = "<group>"; };
+		FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utilities.m"; sourceTree = "<group>"; };
+		FA2A551F170180310030C203 /* ColorDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorDetailVC.h; sourceTree = "<group>"; };
+		FA2A5520170180310030C203 /* ColorDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorDetailVC.m; sourceTree = "<group>"; };
+		FA2A5521170180310030C203 /* ColorDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorDetailVC.xib; sourceTree = "<group>"; };
+		FA33AB8817007E7C00C05C17 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		FA33AB8917007E7C00C05C17 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		FA3E4FF616FF2AEA0035109C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FA40EC1F1666A8670005052F /* colors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = colors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA40EC231666A8670005052F /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -76,6 +92,34 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		FA2A5509170175CD0030C203 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA2A550B170175F60030C203 /* ColorCell.xib */,
+				FA2A5518170177840030C203 /* ColorCell.h */,
+				FA2A5519170177840030C203 /* ColorCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FA2A551B17017F560030C203 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA2A551C17017F6D0030C203 /* UIColor+Utilities.h */,
+				FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		FA33AB8617007E5F00C05C17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA33AB8817007E7C00C05C17 /* Color.h */,
+				FA33AB8917007E7C00C05C17 /* Color.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		FA40EC141666A8670005052F = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +156,10 @@
 				FA40EC321666A8670005052F /* AppDelegate.h */,
 				FA40EC331666A8670005052F /* AppDelegate.m */,
 				FA3E4FF616FF2AEA0035109C /* Constants.h */,
+				FA33AB8617007E5F00C05C17 /* Models */,
 				FA40EC461666A8720005052F /* Controllers */,
+				FA2A5509170175CD0030C203 /* Views */,
+				FA2A551B17017F560030C203 /* Helpers */,
 				FA40EC2A1666A8670005052F /* Supporting Files */,
 			);
 			name = Classes;
@@ -136,6 +183,9 @@
 				FA40EC3B1666A8670005052F /* ColorsVC.h */,
 				FA40EC3C1666A8670005052F /* ColorsVC.m */,
 				FA40EC3E1666A8670005052F /* ColorsVC.xib */,
+				FA2A551F170180310030C203 /* ColorDetailVC.h */,
+				FA2A5520170180310030C203 /* ColorDetailVC.m */,
+				FA2A5521170180310030C203 /* ColorDetailVC.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +247,8 @@
 				FA40EC381666A8670005052F /* Default@2x.png in Resources */,
 				FA40EC3A1666A8670005052F /* Default-568h@2x.png in Resources */,
 				FA40EC401666A8670005052F /* ColorsVC.xib in Resources */,
+				FA2A550C170175F60030C203 /* ColorCell.xib in Resources */,
+				FA2A5523170180310030C203 /* ColorDetailVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +279,10 @@
 				FA40EC301666A8670005052F /* main.m in Sources */,
 				FA40EC341666A8670005052F /* AppDelegate.m in Sources */,
 				FA40EC3D1666A8670005052F /* ColorsVC.m in Sources */,
+				FA33AB8A17007E7C00C05C17 /* Color.m in Sources */,
+				FA2A551A170177840030C203 /* ColorCell.m in Sources */,
+				FA2A551E17017F6D0030C203 /* UIColor+Utilities.m in Sources */,
+				FA2A5522170180310030C203 /* ColorDetailVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ColorsVC : UIViewController<NSURLConnectionDataDelegate, UITableViewDataSource>
+@interface ColorsVC : UIViewController<NSURLConnectionDataDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end

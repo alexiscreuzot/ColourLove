@@ -1,17 +1,17 @@
 // AFNetworkActivityIndicatorManager.m
 //
 // Copyright (c) 2011 Gowalla (http://gowalla.com/)
-//
+// 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-//
+// 
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-//
+// 
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,12 +24,12 @@
 
 #import "AFHTTPRequestOperation.h"
 
-#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
 static NSTimeInterval const kAFNetworkActivityIndicatorInvisibilityDelay = 0.17;
 
 @interface AFNetworkActivityIndicatorManager ()
 @property (readwrite, assign) NSInteger activityCount;
-@property (readwrite, nonatomic, strong) NSTimer *activityIndicatorVisibilityTimer;
+@property (readwrite, nonatomic, retain) NSTimer *activityIndicatorVisibilityTimer;
 @property (readonly, getter = isNetworkActivityIndicatorVisible) BOOL networkActivityIndicatorVisible;
 
 - (void)updateNetworkActivityIndicatorVisibility;
@@ -42,13 +42,13 @@ static NSTimeInterval const kAFNetworkActivityIndicatorInvisibilityDelay = 0.17;
 @synthesize enabled = _enabled;
 @dynamic networkActivityIndicatorVisible;
 
-+ (instancetype)sharedManager {
++ (AFNetworkActivityIndicatorManager *)sharedManager {
     static AFNetworkActivityIndicatorManager *_sharedManager = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
         _sharedManager = [[self alloc] init];
     });
-
+    
     return _sharedManager;
 }
 
@@ -61,18 +61,20 @@ static NSTimeInterval const kAFNetworkActivityIndicatorInvisibilityDelay = 0.17;
     if (!self) {
         return nil;
     }
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkingOperationDidStart:) name:AFNetworkingOperationDidStartNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkingOperationDidFinish:) name:AFNetworkingOperationDidFinishNotification object:nil];
-
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incrementActivityCount) name:AFNetworkingOperationDidStartNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(decrementActivityCount) name:AFNetworkingOperationDidFinishNotification object:nil];
+        
     return self;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-
+    
     [_activityIndicatorVisibilityTimer invalidate];
-
+    [_activityIndicatorVisibilityTimer release]; _activityIndicatorVisibilityTimer = nil;
+    
+    [super dealloc];
 }
 
 - (void)updateNetworkActivityIndicatorVisibilityDelayed {
@@ -120,24 +122,10 @@ static NSTimeInterval const kAFNetworkActivityIndicatorInvisibilityDelay = 0.17;
 - (void)decrementActivityCount {
     [self willChangeValueForKey:@"activityCount"];
 	@synchronized(self) {
-		_activityCount = MAX(_activityCount - 1, 0);
+		_activityCount--;
 	}
     [self didChangeValueForKey:@"activityCount"];
     [self updateNetworkActivityIndicatorVisibilityDelayed];
-}
-
-- (void)networkingOperationDidStart:(NSNotification *)notification {
-    AFURLConnectionOperation *connectionOperation = [notification object];
-    if (connectionOperation.request.URL) {
-        [self incrementActivityCount];
-    }
-}
-
-- (void)networkingOperationDidFinish:(NSNotification *)notification {
-    AFURLConnectionOperation *connectionOperation = [notification object];
-    if (connectionOperation.request.URL) {
-        [self decrementActivityCount];
-    }
 }
 
 @end
