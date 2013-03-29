@@ -11,23 +11,35 @@
 
 @implementation Color
 
+ignore_fields_do(
+                 ignore_field(rgbColor)
+                 ignore_field(inversedColor)
+                 ignore_field(contrastColor)
+                 )
+
 - (id) initWithDict:(NSDictionary *) dict{
-    self.title = dict[@"title"];
-    self.description = dict[@"description"];
-    self.hexString = [NSString stringWithFormat:@"#%@", dict[@"hex"]];
-    self.rgbColor = [UIColor colorWithHexString:dict[@"hex"]];
+    if(self = [super init]){
+        self.id = dict[@"id"];
+        self.title = dict[@"title"];
+        self.userName = dict[@"userName"];
+        self.hexString = dict[@"hex"];
+    }
     return self;
 }
 
-- (UIColor *) inversedColor
+- (UIColor *)rgbColor
 {
-    const CGFloat *componentColors = CGColorGetComponents(self.rgbColor.CGColor);
-    
-    UIColor *newColor = [[UIColor alloc] initWithRed:(1.0 - componentColors[0])
-                                               green:(1.0 - componentColors[1])
-                                                blue:(1.0 - componentColors[2])
-                                               alpha:componentColors[3]];
-    return newColor;
+    return [UIColor colorWithHexString:self.hexString];
+}
+
+- (UIColor *)inversedColor
+{
+    return [UIColor inversedColor:self.rgbColor];
+}
+
+- (UIColor *)contrastColor
+{
+    return [UIColor contrastColorFor:self.rgbColor];
 }
 
 @end

@@ -12,46 +12,83 @@
 #import "ColorCell.h"
 
 @interface ColorsVC ()
-@property (strong, nonatomic) IBOutlet UITableView * colorsTableView;
+@property (weak, nonatomic) IBOutlet UITableView * colorsTableView;
+@property (weak, nonatomic) IBOutlet UISearchBar * searchBar;
 @end
 
 @implementation ColorsVC{
     NSMutableArray * colors;
-    NSMutableData * receivedData;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    colors = [NSMutableArray array];
-    receivedData = [NSMutableData data];
+    [_searchBar setText:@""];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    // Check if colors is nil, we need to refresh data if it's the case
+    // We then check the database, and only proceed to do a web request
+    // if the database doesn't return any results
+    if(!colors){
+        if([Color count] == 0){
+            [self requestColors];
+        }else{
+            colors = [Color allRecords].mutableCopy;
+            [_colorsTableView reloadData];
+        }
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if([colors count] == 0){
-        [self requestColors];
-    }else{
-        [_colorsTableView deselectRowAtIndexPath:_colorsTableView.indexPathForSelectedRow animated:YES];
-    }
+    [_colorsTableView deselectRowAtIndexPath:_colorsTableView.indexPathForSelectedRow animated:YES];
 }
 
-#pragma mark - Networking (Third parties)
+
+#pragma mark - Local data
+
+// In case of no internet connection
+// parse json from a local file
+- (void) parseColorsJSON
+{
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"colors" ofType:@"json"];
+    NSString *content = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:nil];
+    
+    for(NSDictionary * colorDict in [content JSONValue]){
+        Color * col = [[Color alloc] initWithDict:colorDict];
+        [colors addObject:col];
+    }
+    [_colorsTableView reloadData];
+    [SVProgressHUD showSuccessWithStatus:@"Done"];
+}
+
+#pragma mark - Networking
 
 - (void) requestColors
 {
     // Init client
     AFHTTPClient * client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_BASE]];
     // Launch progressHUD and request
-    [SVProgressHUD show];
-    [client getPath:@"colors" parameters:@{@"format":@"json"}
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+    [client getPath:@"colors" parameters:@{@"format":@"json", @"keywords":_searchBar.text}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
-                for(NSDictionary * colorDict in [responseObject JSONValue]){
-                    Color * col = [[Color alloc] initWithDict:colorDict];
+                // Refresh the data with the new values
+                [Color dropAllRecords];
+                colors = [NSMutableArray array];
+                
+                for(NSDictionary * colorDict in [operation.responseString JSONValue]){
+                    Color * col = [[Color newRecord]initWithDict:colorDict];
+                    [col save];
                     [colors addObject:col];
                 }
+                
                 [_colorsTableView reloadData];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];
                 
@@ -76,11 +113,7 @@
         cell = [[ColorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    Color * currentColor = colors[indexPath.row];
-    cell.color = currentColor;
-    cell.titleLabel.text = currentColor.title;
-    cell.subtitleLabel.text = currentColor.description;
-    cell.colorView.backgroundColor = currentColor.rgbColor;
+    [cell displayForColor:colors[indexPath.row]];
     
     return cell;
 }
@@ -90,6 +123,18 @@
     Color * selectedColor = colors[indexPath.row];
     ColorDetailVC * detailController = [[ColorDetailVC alloc] initWithColor:selectedColor];
     [self.navigationController pushViewController:detailController animated:YES];
+}
+
+#pragma mark - SearchBar methods
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self requestColors];
+    [_searchBar resignFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [_searchBar resignFirstResponder];
 }
 
 @end

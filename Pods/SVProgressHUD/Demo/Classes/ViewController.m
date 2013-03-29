@@ -9,7 +9,10 @@
 #import "ViewController.h"
 #import "SVProgressHUD.h"
 
-@implementation ViewController
+@implementation ViewController {
+    NSTimer *timer;
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
@@ -27,21 +30,26 @@
 }
 
 static float progress = 0.0f;
-
 - (IBAction)showWithProgress:(id)sender {
     progress = 0.0f;
     [SVProgressHUD showProgress:0 status:@"Loading"];
-    [self performSelector:@selector(increaseProgress) withObject:nil afterDelay:0.3];
+    if (timer) {
+        [timer invalidate];
+    }
+        
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(setProgress) userInfo:nil repeats:YES];
 }
 
-- (void)increaseProgress {
+- (void)setProgress {
     progress+=0.1f;
     [SVProgressHUD showProgress:progress status:@"Loading"];
 
-    if(progress < 1.0f)
-        [self performSelector:@selector(increaseProgress) withObject:nil afterDelay:0.3];
-    else
+    if(progress >= 1.0f) {
+        [timer invalidate];
+        timer = nil;
+        
         [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.4f];
+    }
 }
 
 
@@ -49,15 +57,18 @@ static float progress = 0.0f;
 #pragma mark Dismiss Methods Sample
 
 - (void)dismiss {
-	[SVProgressHUD popActivity];
+	[SVProgressHUD dismiss];
+    [timer invalidate];
 }
 
 - (void)dismissSuccess {
 	[SVProgressHUD showSuccessWithStatus:@"Great Success!"];
+    [timer invalidate];
 }
 
 - (void)dismissError {
 	[SVProgressHUD showErrorWithStatus:@"Failed with Error"];
+    [timer invalidate];
 }
 
 @end

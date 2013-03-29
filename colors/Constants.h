@@ -6,4 +6,4 @@
 //  Copyright (c) 2013 Alex. All rights reserved.
 //
 
-#define URL_BASE @"http://www.colourlovers.com/api/colors?format=json"
+#define URL_BASE @"http://www.colourlovers.com/api"

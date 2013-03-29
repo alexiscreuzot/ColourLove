@@ -12,5 +12,7 @@
 @property (strong,nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong,nonatomic) IBOutlet UILabel * subtitleLabel;
 @property (strong,nonatomic) IBOutlet UIView * colorView;
-@property (strong,nonatomic) Color * color;
+
+- (void) displayForColor:(UIColor *) color;
+
 @end

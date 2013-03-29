@@ -8,16 +8,26 @@
 
 #import "ColorCell.h"
 
-@implementation ColorCell
+@implementation ColorCell{
+    Color * _color;
+    BOOL animating;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ColorCell" owner:self options:nil];
         self = nib[0];
     }
     return self;
+}
+
+- (void) displayForColor:(Color *) color
+{
+    _color = color;
+    [self.titleLabel setText:color.title];
+    [self.subtitleLabel setText:[NSString stringWithFormat:@"#%@",color.hexString]];
+    [self.colorView setBackgroundColor:color.rgbColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -27,7 +37,7 @@
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
-    [self colorBackground:highlighted];
+    //[self colorBackground:YES];
 }
 
 // Animate background color change
@@ -38,8 +48,12 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
     if(doColor){
         self.backgroundColor = _color.rgbColor;
+        self.titleLabel.textColor = _color.contrastColor;
+        self.subtitleLabel.textColor = _color.contrastColor;
     }else{
         self.backgroundColor = [UIColor whiteColor];
+        self.titleLabel.textColor = [UIColor blackColor];
+        self.subtitleLabel.textColor = [UIColor lightGrayColor];
     }
     [UIView commitAnimations];
 }

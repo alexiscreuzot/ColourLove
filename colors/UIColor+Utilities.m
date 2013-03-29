@@ -46,4 +46,26 @@
                            alpha:1.0f];
 }
 
++ (UIColor *) inversedColor:(UIColor *) color
+{
+    const CGFloat *componentColors = CGColorGetComponents(color.CGColor);
+    
+    UIColor *newColor = [[UIColor alloc] initWithRed:(1.0 - componentColors[0])
+                                               green:(1.0 - componentColors[1])
+                                                blue:(1.0 - componentColors[2])
+                                               alpha:componentColors[3]];
+    
+    return newColor;
+}
+
++ (UIColor *) contrastColorFor:(UIColor *) color
+{
+    const CGFloat *componentColors = CGColorGetComponents(color.CGColor);
+    if(componentColors[0] + componentColors[1] + componentColors[2] > (0.55*3)){
+        return [UIColor blackColor];
+    }else{
+        return [UIColor whiteColor];
+    }
+}
+
 @end

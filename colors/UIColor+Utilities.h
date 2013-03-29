@@ -8,4 +8,6 @@
 
 @interface UIColor (Utilities)
 +(UIColor*) colorWithHexString:(NSString*)hex;
++(UIColor *) inversedColor:(UIColor *) color;
++(UIColor *) contrastColorFor:(UIColor *) color;
 @end

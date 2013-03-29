@@ -8,12 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		9FDDB8BD530445FE8D195FC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2612F0177EA8454995B86709 /* libPods.a */; };
+		FA0E9CEF1705514A000A6647 /* PatternsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CED1705514A000A6647 /* PatternsVC.m */; };
+		FA0E9CF01705514A000A6647 /* PatternsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CEE1705514A000A6647 /* PatternsVC.xib */; };
+		FA0E9CF3170551F2000A6647 /* Pattern.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CF2170551F2000A6647 /* Pattern.m */; };
+		FA0E9CFC17055652000A6647 /* PatternCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CFB17055652000A6647 /* PatternCell.m */; };
+		FA0E9CFE17055665000A6647 /* PatternCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CFD17055665000A6647 /* PatternCell.xib */; };
+		FA0E9D001705607E000A6647 /* pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CFF1705607E000A6647 /* pattern.png */; };
 		FA2A550C170175F60030C203 /* ColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A550B170175F60030C203 /* ColorCell.xib */; };
 		FA2A551A170177840030C203 /* ColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A5519170177840030C203 /* ColorCell.m */; };
 		FA2A551E17017F6D0030C203 /* UIColor+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */; };
 		FA2A5522170180310030C203 /* ColorDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A5520170180310030C203 /* ColorDetailVC.m */; };
 		FA2A5523170180310030C203 /* ColorDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A5521170180310030C203 /* ColorDetailVC.xib */; };
 		FA33AB8A17007E7C00C05C17 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = FA33AB8917007E7C00C05C17 /* Color.m */; };
+		FA35000E17044F040071FF2F /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = FA35000D17044F040071FF2F /* palette.png */; };
+		FA35001017044F0E0071FF2F /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = FA35000F17044F0E0071FF2F /* color.png */; };
+		FA35001B170450120071FF2F /* button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FA350019170450120071FF2F /* button_pressed.png */; };
+		FA35001C170450120071FF2F /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA35001A170450120071FF2F /* button.png */; };
+		FA3500271704503E0071FF2F /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3500261704503D0071FF2F /* ActionButton.m */; };
+		FA35FFD817040FAC0071FF2F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35FFD717040FAC0071FF2F /* User.m */; };
+		FA35FFDF170411820071FF2F /* UserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35FFDD170411820071FF2F /* UserDetailVC.m */; };
+		FA35FFE0170411820071FF2F /* UserDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA35FFDE170411820071FF2F /* UserDetailVC.xib */; };
+		FA35FFEB17041FD90071FF2F /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35FFEA17041FD90071FF2F /* NSString+Utilities.m */; };
+		FA35FFEE170424DC0071FF2F /* Palette.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35FFED170424DB0071FF2F /* Palette.m */; };
+		FA35FFF61704254D0071FF2F /* PalettesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35FFF41704254D0071FF2F /* PalettesVC.m */; };
+		FA35FFF71704254D0071FF2F /* PalettesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA35FFF51704254D0071FF2F /* PalettesVC.xib */; };
+		FA35FFFB170426F80071FF2F /* PaletteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35FFF9170426F80071FF2F /* PaletteCell.m */; };
+		FA35FFFC170426F80071FF2F /* PaletteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA35FFFA170426F80071FF2F /* PaletteCell.xib */; };
 		FA40EC241666A8670005052F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA40EC231666A8670005052F /* UIKit.framework */; };
 		FA40EC261666A8670005052F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA40EC251666A8670005052F /* Foundation.framework */; };
 		FA40EC281666A8670005052F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA40EC271666A8670005052F /* CoreGraphics.framework */; };
@@ -23,13 +43,22 @@
 		FA40EC361666A8670005052F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA40EC351666A8670005052F /* Default.png */; };
 		FA40EC381666A8670005052F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA40EC371666A8670005052F /* Default@2x.png */; };
 		FA40EC3A1666A8670005052F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA40EC391666A8670005052F /* Default-568h@2x.png */; };
-		FA40EC3D1666A8670005052F /* ColorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40EC3C1666A8670005052F /* ColorsVC.m */; };
-		FA40EC401666A8670005052F /* ColorsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA40EC3E1666A8670005052F /* ColorsVC.xib */; };
+		FA977D391705810C003E5AE2 /* ColorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977D371705810C003E5AE2 /* ColorsVC.m */; };
+		FA977D3A1705810C003E5AE2 /* ColorsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D381705810C003E5AE2 /* ColorsVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2612F0177EA8454995B86709 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D177F149CB4B412C8378F8E0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FA0E9CEC1705514A000A6647 /* PatternsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternsVC.h; sourceTree = "<group>"; };
+		FA0E9CED1705514A000A6647 /* PatternsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternsVC.m; sourceTree = "<group>"; };
+		FA0E9CEE1705514A000A6647 /* PatternsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatternsVC.xib; sourceTree = "<group>"; };
+		FA0E9CF1170551F2000A6647 /* Pattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pattern.h; sourceTree = "<group>"; };
+		FA0E9CF2170551F2000A6647 /* Pattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pattern.m; sourceTree = "<group>"; };
+		FA0E9CFA17055652000A6647 /* PatternCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternCell.h; sourceTree = "<group>"; };
+		FA0E9CFB17055652000A6647 /* PatternCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternCell.m; sourceTree = "<group>"; };
+		FA0E9CFD17055665000A6647 /* PatternCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatternCell.xib; sourceTree = "<group>"; };
+		FA0E9CFF1705607E000A6647 /* pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pattern.png; sourceTree = "<group>"; };
 		FA2A550B170175F60030C203 /* ColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorCell.xib; sourceTree = "<group>"; };
 		FA2A5518170177840030C203 /* ColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCell.h; sourceTree = "<group>"; };
 		FA2A5519170177840030C203 /* ColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorCell.m; sourceTree = "<group>"; };
@@ -40,6 +69,27 @@
 		FA2A5521170180310030C203 /* ColorDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorDetailVC.xib; sourceTree = "<group>"; };
 		FA33AB8817007E7C00C05C17 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		FA33AB8917007E7C00C05C17 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
+		FA35000D17044F040071FF2F /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
+		FA35000F17044F0E0071FF2F /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
+		FA350019170450120071FF2F /* button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pressed.png; sourceTree = "<group>"; };
+		FA35001A170450120071FF2F /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		FA3500251704503C0071FF2F /* ActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionButton.h; sourceTree = "<group>"; };
+		FA3500261704503D0071FF2F /* ActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionButton.m; sourceTree = "<group>"; };
+		FA35FFD617040FAC0071FF2F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		FA35FFD717040FAC0071FF2F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		FA35FFDC170411820071FF2F /* UserDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailVC.h; sourceTree = "<group>"; };
+		FA35FFDD170411820071FF2F /* UserDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailVC.m; sourceTree = "<group>"; };
+		FA35FFDE170411820071FF2F /* UserDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailVC.xib; sourceTree = "<group>"; };
+		FA35FFE917041FD90071FF2F /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utilities.h"; sourceTree = "<group>"; };
+		FA35FFEA17041FD90071FF2F /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
+		FA35FFEC170424DB0071FF2F /* Palette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Palette.h; sourceTree = "<group>"; };
+		FA35FFED170424DB0071FF2F /* Palette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Palette.m; sourceTree = "<group>"; };
+		FA35FFF31704254D0071FF2F /* PalettesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalettesVC.h; sourceTree = "<group>"; };
+		FA35FFF41704254D0071FF2F /* PalettesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalettesVC.m; sourceTree = "<group>"; };
+		FA35FFF51704254D0071FF2F /* PalettesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PalettesVC.xib; sourceTree = "<group>"; };
+		FA35FFF8170426F80071FF2F /* PaletteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteCell.h; sourceTree = "<group>"; };
+		FA35FFF9170426F80071FF2F /* PaletteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteCell.m; sourceTree = "<group>"; };
+		FA35FFFA170426F80071FF2F /* PaletteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaletteCell.xib; sourceTree = "<group>"; };
 		FA3E4FF616FF2AEA0035109C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FA40EC1F1666A8670005052F /* colors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = colors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA40EC231666A8670005052F /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -54,9 +104,9 @@
 		FA40EC351666A8670005052F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = colors/Default.png; sourceTree = "<group>"; };
 		FA40EC371666A8670005052F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "colors/Default@2x.png"; sourceTree = "<group>"; };
 		FA40EC391666A8670005052F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "colors/Default-568h@2x.png"; sourceTree = "<group>"; };
-		FA40EC3B1666A8670005052F /* ColorsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorsVC.h; sourceTree = "<group>"; };
-		FA40EC3C1666A8670005052F /* ColorsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorsVC.m; sourceTree = "<group>"; };
-		FA40EC3F1666A8670005052F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ColorsVC.xib; sourceTree = "<group>"; };
+		FA977D361705810C003E5AE2 /* ColorsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsVC.h; sourceTree = "<group>"; };
+		FA977D371705810C003E5AE2 /* ColorsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorsVC.m; sourceTree = "<group>"; };
+		FA977D381705810C003E5AE2 /* ColorsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorsVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +124,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0E9CEB17055138000A6647 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E9CEC1705514A000A6647 /* PatternsVC.h */,
+				FA0E9CED1705514A000A6647 /* PatternsVC.m */,
+				FA0E9CEE1705514A000A6647 /* PatternsVC.xib */,
+			);
+			name = Patterns;
+			sourceTree = "<group>";
+		};
 		FA1D624416FF2C1D0028D563 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +145,11 @@
 		FA1D624516FF2C2C0028D563 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA0E9CFF1705607E000A6647 /* pattern.png */,
+				FA350019170450120071FF2F /* button_pressed.png */,
+				FA35001A170450120071FF2F /* button.png */,
+				FA35000F17044F0E0071FF2F /* color.png */,
+				FA35000D17044F040071FF2F /* palette.png */,
 				FA40EC351666A8670005052F /* Default.png */,
 				FA40EC371666A8670005052F /* Default@2x.png */,
 				FA40EC391666A8670005052F /* Default-568h@2x.png */,
@@ -95,9 +160,17 @@
 		FA2A5509170175CD0030C203 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA2A550B170175F60030C203 /* ColorCell.xib */,
+				FA3500251704503C0071FF2F /* ActionButton.h */,
+				FA3500261704503D0071FF2F /* ActionButton.m */,
+				FA35FFF8170426F80071FF2F /* PaletteCell.h */,
+				FA35FFF9170426F80071FF2F /* PaletteCell.m */,
+				FA35FFFA170426F80071FF2F /* PaletteCell.xib */,
 				FA2A5518170177840030C203 /* ColorCell.h */,
 				FA2A5519170177840030C203 /* ColorCell.m */,
+				FA2A550B170175F60030C203 /* ColorCell.xib */,
+				FA0E9CFA17055652000A6647 /* PatternCell.h */,
+				FA0E9CFB17055652000A6647 /* PatternCell.m */,
+				FA0E9CFD17055665000A6647 /* PatternCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -107,6 +180,8 @@
 			children = (
 				FA2A551C17017F6D0030C203 /* UIColor+Utilities.h */,
 				FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */,
+				FA35FFE917041FD90071FF2F /* NSString+Utilities.h */,
+				FA35FFEA17041FD90071FF2F /* NSString+Utilities.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -116,8 +191,47 @@
 			children = (
 				FA33AB8817007E7C00C05C17 /* Color.h */,
 				FA33AB8917007E7C00C05C17 /* Color.m */,
+				FA35FFD617040FAC0071FF2F /* User.h */,
+				FA35FFD717040FAC0071FF2F /* User.m */,
+				FA35FFEC170424DB0071FF2F /* Palette.h */,
+				FA35FFED170424DB0071FF2F /* Palette.m */,
+				FA0E9CF1170551F2000A6647 /* Pattern.h */,
+				FA0E9CF2170551F2000A6647 /* Pattern.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FA35FFDA170411550071FF2F /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				FA2A551F170180310030C203 /* ColorDetailVC.h */,
+				FA2A5520170180310030C203 /* ColorDetailVC.m */,
+				FA2A5521170180310030C203 /* ColorDetailVC.xib */,
+				FA977D361705810C003E5AE2 /* ColorsVC.h */,
+				FA977D371705810C003E5AE2 /* ColorsVC.m */,
+				FA977D381705810C003E5AE2 /* ColorsVC.xib */,
+			);
+			name = Colors;
+			sourceTree = "<group>";
+		};
+		FA35FFDB170411610071FF2F /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				FA35FFDC170411820071FF2F /* UserDetailVC.h */,
+				FA35FFDD170411820071FF2F /* UserDetailVC.m */,
+				FA35FFDE170411820071FF2F /* UserDetailVC.xib */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		FA35FFEF170424EC0071FF2F /* Palettes */ = {
+			isa = PBXGroup;
+			children = (
+				FA35FFF31704254D0071FF2F /* PalettesVC.h */,
+				FA35FFF41704254D0071FF2F /* PalettesVC.m */,
+				FA35FFF51704254D0071FF2F /* PalettesVC.xib */,
+			);
+			name = Palettes;
 			sourceTree = "<group>";
 		};
 		FA40EC141666A8670005052F = {
@@ -180,12 +294,10 @@
 		FA40EC461666A8720005052F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA40EC3B1666A8670005052F /* ColorsVC.h */,
-				FA40EC3C1666A8670005052F /* ColorsVC.m */,
-				FA40EC3E1666A8670005052F /* ColorsVC.xib */,
-				FA2A551F170180310030C203 /* ColorDetailVC.h */,
-				FA2A5520170180310030C203 /* ColorDetailVC.m */,
-				FA2A5521170180310030C203 /* ColorDetailVC.xib */,
+				FA0E9CEB17055138000A6647 /* Patterns */,
+				FA35FFEF170424EC0071FF2F /* Palettes */,
+				FA35FFDB170411610071FF2F /* Users */,
+				FA35FFDA170411550071FF2F /* Colors */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -246,9 +358,19 @@
 				FA40EC361666A8670005052F /* Default.png in Resources */,
 				FA40EC381666A8670005052F /* Default@2x.png in Resources */,
 				FA40EC3A1666A8670005052F /* Default-568h@2x.png in Resources */,
-				FA40EC401666A8670005052F /* ColorsVC.xib in Resources */,
 				FA2A550C170175F60030C203 /* ColorCell.xib in Resources */,
 				FA2A5523170180310030C203 /* ColorDetailVC.xib in Resources */,
+				FA35FFE0170411820071FF2F /* UserDetailVC.xib in Resources */,
+				FA35FFF71704254D0071FF2F /* PalettesVC.xib in Resources */,
+				FA35FFFC170426F80071FF2F /* PaletteCell.xib in Resources */,
+				FA35000E17044F040071FF2F /* palette.png in Resources */,
+				FA35001017044F0E0071FF2F /* color.png in Resources */,
+				FA35001B170450120071FF2F /* button_pressed.png in Resources */,
+				FA35001C170450120071FF2F /* button.png in Resources */,
+				FA0E9CF01705514A000A6647 /* PatternsVC.xib in Resources */,
+				FA0E9CFE17055665000A6647 /* PatternCell.xib in Resources */,
+				FA0E9D001705607E000A6647 /* pattern.png in Resources */,
+				FA977D3A1705810C003E5AE2 /* ColorsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,11 +400,21 @@
 			files = (
 				FA40EC301666A8670005052F /* main.m in Sources */,
 				FA40EC341666A8670005052F /* AppDelegate.m in Sources */,
-				FA40EC3D1666A8670005052F /* ColorsVC.m in Sources */,
 				FA33AB8A17007E7C00C05C17 /* Color.m in Sources */,
 				FA2A551A170177840030C203 /* ColorCell.m in Sources */,
 				FA2A551E17017F6D0030C203 /* UIColor+Utilities.m in Sources */,
 				FA2A5522170180310030C203 /* ColorDetailVC.m in Sources */,
+				FA35FFD817040FAC0071FF2F /* User.m in Sources */,
+				FA35FFDF170411820071FF2F /* UserDetailVC.m in Sources */,
+				FA35FFEB17041FD90071FF2F /* NSString+Utilities.m in Sources */,
+				FA35FFEE170424DC0071FF2F /* Palette.m in Sources */,
+				FA35FFF61704254D0071FF2F /* PalettesVC.m in Sources */,
+				FA35FFFB170426F80071FF2F /* PaletteCell.m in Sources */,
+				FA3500271704503E0071FF2F /* ActionButton.m in Sources */,
+				FA0E9CEF1705514A000A6647 /* PatternsVC.m in Sources */,
+				FA0E9CF3170551F2000A6647 /* Pattern.m in Sources */,
+				FA0E9CFC17055652000A6647 /* PatternCell.m in Sources */,
+				FA977D391705810C003E5AE2 /* ColorsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,14 +427,6 @@
 				FA40EC2D1666A8670005052F /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FA40EC3E1666A8670005052F /* ColorsVC.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA40EC3F1666A8670005052F /* en */,
-			);
-			name = ColorsVC.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
