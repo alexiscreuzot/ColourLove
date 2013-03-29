@@ -121,7 +121,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Color * selectedColor = colors[indexPath.row];
-    ColorDetailVC * detailController = [[ColorDetailVC alloc] initWithColor:selectedColor];
+    ColorDetailVC * detailController = [LayoutManager loadController:[ColorDetailVC class]];
+    detailController.color = selectedColor;
     [self.navigationController pushViewController:detailController animated:YES];
 }
 

@@ -44,9 +44,9 @@
     [_titleLabel setText:_color.title];
     [_subtitleLabel setText:_color.userName];
     
-    //[_userButton setBackgroundColor:_color.rgbColor];
-    //[_userButton setTitleColor:_color.contrastColor forState:UIControlStateNormal];
-    //[_userButton setTitleColor:_color.contrastColor forState:UIControlStateNormal];
+    [_userButton setBackgroundColor:_color.rgbColor];
+    [_userButton setTitleColor:_color.contrastColor forState:UIControlStateNormal];
+    [_userButton setTitleColor:_color.contrastColor forState:UIControlStateNormal];
 }
 
 #pragma mark - Networking
@@ -64,7 +64,7 @@
                 [user save];
                 [SVProgressHUD dismiss];
                 
-                UserDetailVC * detailController = [[UserDetailVC alloc] init];
+                UserDetailVC * detailController = [LayoutManager loadController:[UserDetailVC class]];
                 detailController.user = user;
                 [self.navigationController pushViewController:detailController animated:YES];
                 
@@ -79,7 +79,7 @@
 {
     user = [[[[User lazyFetcher] whereField:@"userName" equalToValue:_color.userName] fetchRecords] first];
     if(user){
-        UserDetailVC * detailController = [[UserDetailVC alloc] init];
+        UserDetailVC * detailController = [LayoutManager loadController:[UserDetailVC class]];
         detailController.user = user;
         [self.navigationController pushViewController:detailController animated:YES];
     }else{

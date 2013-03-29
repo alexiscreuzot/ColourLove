@@ -20,16 +20,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Init both Navigation controllers with respective rootControllers
-    ColorsVC * colorController = [[ColorsVC alloc] init];
+    ColorsVC * colorController = [LayoutManager loadController:[ColorsVC class]];
     colorController.title = @"Colors";
     colorController.tabBarItem.image = [UIImage imageNamed:@"color"];
     UINavigationController * colorNavigationController = [[UINavigationController alloc] initWithRootViewController:colorController];
     
-    PalettesVC * paletteController = [[PalettesVC alloc] init];
+    PalettesVC * paletteController = [LayoutManager loadController:[PalettesVC class]];
     paletteController.title = @"Palettes";
     paletteController.tabBarItem.image = [UIImage imageNamed:@"palette"];
 
-    PatternsVC * patternController = [[PatternsVC alloc] init];
+    PatternsVC * patternController = [LayoutManager loadController:[PatternsVC class]];
     patternController.title = @"Patterns";
     patternController.tabBarItem.image = [UIImage imageNamed:@"pattern"];
     

@@ -20,5 +20,6 @@
 
 #import "Constants.h"
 #import "NSString+Utilities.h"
+#import "LayoutManager.h"
 
 #endif

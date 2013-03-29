@@ -45,6 +45,8 @@
 		FA40EC3A1666A8670005052F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA40EC391666A8670005052F /* Default-568h@2x.png */; };
 		FA977D391705810C003E5AE2 /* ColorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977D371705810C003E5AE2 /* ColorsVC.m */; };
 		FA977D3A1705810C003E5AE2 /* ColorsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D381705810C003E5AE2 /* ColorsVC.xib */; };
+		FA977D421705B602003E5AE2 /* LayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977D411705B602003E5AE2 /* LayoutManager.m */; };
+		FA977D441705B901003E5AE2 /* ColorDetailVC_4in.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D431705B901003E5AE2 /* ColorDetailVC_4in.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,9 @@
 		FA977D361705810C003E5AE2 /* ColorsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsVC.h; sourceTree = "<group>"; };
 		FA977D371705810C003E5AE2 /* ColorsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorsVC.m; sourceTree = "<group>"; };
 		FA977D381705810C003E5AE2 /* ColorsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorsVC.xib; sourceTree = "<group>"; };
+		FA977D401705B602003E5AE2 /* LayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutManager.h; sourceTree = "<group>"; };
+		FA977D411705B602003E5AE2 /* LayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutManager.m; sourceTree = "<group>"; };
+		FA977D431705B901003E5AE2 /* ColorDetailVC_4in.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorDetailVC_4in.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +187,8 @@
 				FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */,
 				FA35FFE917041FD90071FF2F /* NSString+Utilities.h */,
 				FA35FFEA17041FD90071FF2F /* NSString+Utilities.m */,
+				FA977D401705B602003E5AE2 /* LayoutManager.h */,
+				FA977D411705B602003E5AE2 /* LayoutManager.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -207,6 +214,7 @@
 				FA2A551F170180310030C203 /* ColorDetailVC.h */,
 				FA2A5520170180310030C203 /* ColorDetailVC.m */,
 				FA2A5521170180310030C203 /* ColorDetailVC.xib */,
+				FA977D431705B901003E5AE2 /* ColorDetailVC_4in.xib */,
 				FA977D361705810C003E5AE2 /* ColorsVC.h */,
 				FA977D371705810C003E5AE2 /* ColorsVC.m */,
 				FA977D381705810C003E5AE2 /* ColorsVC.xib */,
@@ -371,6 +379,7 @@
 				FA0E9CFE17055665000A6647 /* PatternCell.xib in Resources */,
 				FA0E9D001705607E000A6647 /* pattern.png in Resources */,
 				FA977D3A1705810C003E5AE2 /* ColorsVC.xib in Resources */,
+				FA977D441705B901003E5AE2 /* ColorDetailVC_4in.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +424,7 @@
 				FA0E9CF3170551F2000A6647 /* Pattern.m in Sources */,
 				FA0E9CFC17055652000A6647 /* PatternCell.m in Sources */,
 				FA977D391705810C003E5AE2 /* ColorsVC.m in Sources */,
+				FA977D421705B602003E5AE2 /* LayoutManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
