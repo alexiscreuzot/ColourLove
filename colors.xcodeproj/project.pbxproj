@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82B4D3451733A3E100651E74 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B4D3421733A3E100651E74 /* Default-568h@2x.png */; };
+		82B4D3461733A3E100651E74 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B4D3431733A3E100651E74 /* Default.png */; };
+		82B4D3471733A3E100651E74 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B4D3441733A3E100651E74 /* Default@2x.png */; };
 		9FDDB8BD530445FE8D195FC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2612F0177EA8454995B86709 /* libPods.a */; };
 		FA0E9CEF1705514A000A6647 /* PatternsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CED1705514A000A6647 /* PatternsVC.m */; };
 		FA0E9CF01705514A000A6647 /* PatternsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CEE1705514A000A6647 /* PatternsVC.xib */; };
@@ -18,13 +21,10 @@
 		FA2A551A170177840030C203 /* ColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A5519170177840030C203 /* ColorCell.m */; };
 		FA2A551E17017F6D0030C203 /* UIColor+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */; };
 		FA2A5522170180310030C203 /* ColorDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A5520170180310030C203 /* ColorDetailVC.m */; };
-		FA2A5523170180310030C203 /* ColorDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A5521170180310030C203 /* ColorDetailVC.xib */; };
+		FA2A5523170180310030C203 /* ColorDetailVC~iphone3_5.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A5521170180310030C203 /* ColorDetailVC~iphone3_5.xib */; };
 		FA33AB8A17007E7C00C05C17 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = FA33AB8917007E7C00C05C17 /* Color.m */; };
 		FA35000E17044F040071FF2F /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = FA35000D17044F040071FF2F /* palette.png */; };
 		FA35001017044F0E0071FF2F /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = FA35000F17044F0E0071FF2F /* color.png */; };
-		FA35001B170450120071FF2F /* button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FA350019170450120071FF2F /* button_pressed.png */; };
-		FA35001C170450120071FF2F /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA35001A170450120071FF2F /* button.png */; };
-		FA3500271704503E0071FF2F /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3500261704503D0071FF2F /* ActionButton.m */; };
 		FA35FFD817040FAC0071FF2F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35FFD717040FAC0071FF2F /* User.m */; };
 		FA35FFDF170411820071FF2F /* UserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35FFDD170411820071FF2F /* UserDetailVC.m */; };
 		FA35FFE0170411820071FF2F /* UserDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA35FFDE170411820071FF2F /* UserDetailVC.xib */; };
@@ -40,17 +40,16 @@
 		FA40EC2E1666A8670005052F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA40EC2C1666A8670005052F /* InfoPlist.strings */; };
 		FA40EC301666A8670005052F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40EC2F1666A8670005052F /* main.m */; };
 		FA40EC341666A8670005052F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40EC331666A8670005052F /* AppDelegate.m */; };
-		FA40EC361666A8670005052F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA40EC351666A8670005052F /* Default.png */; };
-		FA40EC381666A8670005052F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA40EC371666A8670005052F /* Default@2x.png */; };
-		FA40EC3A1666A8670005052F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA40EC391666A8670005052F /* Default-568h@2x.png */; };
 		FA977D391705810C003E5AE2 /* ColorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977D371705810C003E5AE2 /* ColorsVC.m */; };
 		FA977D3A1705810C003E5AE2 /* ColorsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D381705810C003E5AE2 /* ColorsVC.xib */; };
-		FA977D421705B602003E5AE2 /* LayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977D411705B602003E5AE2 /* LayoutManager.m */; };
-		FA977D441705B901003E5AE2 /* ColorDetailVC_4in.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D431705B901003E5AE2 /* ColorDetailVC_4in.xib */; };
+		FA977D441705B901003E5AE2 /* ColorDetailVC~iphone4.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D431705B901003E5AE2 /* ColorDetailVC~iphone4.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2612F0177EA8454995B86709 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		82B4D3421733A3E100651E74 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		82B4D3431733A3E100651E74 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		82B4D3441733A3E100651E74 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D177F149CB4B412C8378F8E0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		FA0E9CEC1705514A000A6647 /* PatternsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternsVC.h; sourceTree = "<group>"; };
 		FA0E9CED1705514A000A6647 /* PatternsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternsVC.m; sourceTree = "<group>"; };
@@ -68,15 +67,11 @@
 		FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utilities.m"; sourceTree = "<group>"; };
 		FA2A551F170180310030C203 /* ColorDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorDetailVC.h; sourceTree = "<group>"; };
 		FA2A5520170180310030C203 /* ColorDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorDetailVC.m; sourceTree = "<group>"; };
-		FA2A5521170180310030C203 /* ColorDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorDetailVC.xib; sourceTree = "<group>"; };
+		FA2A5521170180310030C203 /* ColorDetailVC~iphone3_5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ColorDetailVC~iphone3_5.xib"; sourceTree = "<group>"; };
 		FA33AB8817007E7C00C05C17 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		FA33AB8917007E7C00C05C17 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		FA35000D17044F040071FF2F /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
 		FA35000F17044F0E0071FF2F /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
-		FA350019170450120071FF2F /* button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pressed.png; sourceTree = "<group>"; };
-		FA35001A170450120071FF2F /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
-		FA3500251704503C0071FF2F /* ActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionButton.h; sourceTree = "<group>"; };
-		FA3500261704503D0071FF2F /* ActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionButton.m; sourceTree = "<group>"; };
 		FA35FFD617040FAC0071FF2F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		FA35FFD717040FAC0071FF2F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		FA35FFDC170411820071FF2F /* UserDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailVC.h; sourceTree = "<group>"; };
@@ -103,15 +98,10 @@
 		FA40EC311666A8670005052F /* colors-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "colors-Prefix.pch"; sourceTree = "<group>"; };
 		FA40EC321666A8670005052F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA40EC331666A8670005052F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FA40EC351666A8670005052F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = colors/Default.png; sourceTree = "<group>"; };
-		FA40EC371666A8670005052F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "colors/Default@2x.png"; sourceTree = "<group>"; };
-		FA40EC391666A8670005052F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "colors/Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA977D361705810C003E5AE2 /* ColorsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsVC.h; sourceTree = "<group>"; };
 		FA977D371705810C003E5AE2 /* ColorsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorsVC.m; sourceTree = "<group>"; };
 		FA977D381705810C003E5AE2 /* ColorsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorsVC.xib; sourceTree = "<group>"; };
-		FA977D401705B602003E5AE2 /* LayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutManager.h; sourceTree = "<group>"; };
-		FA977D411705B602003E5AE2 /* LayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutManager.m; sourceTree = "<group>"; };
-		FA977D431705B901003E5AE2 /* ColorDetailVC_4in.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorDetailVC_4in.xib; sourceTree = "<group>"; };
+		FA977D431705B901003E5AE2 /* ColorDetailVC~iphone4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ColorDetailVC~iphone4.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,28 +135,25 @@
 				FA1D624516FF2C2C0028D563 /* Images */,
 			);
 			name = Resources;
+			path = colors/Resources;
 			sourceTree = "<group>";
 		};
 		FA1D624516FF2C2C0028D563 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				FA0E9CFF1705607E000A6647 /* pattern.png */,
-				FA350019170450120071FF2F /* button_pressed.png */,
-				FA35001A170450120071FF2F /* button.png */,
 				FA35000F17044F0E0071FF2F /* color.png */,
 				FA35000D17044F040071FF2F /* palette.png */,
-				FA40EC351666A8670005052F /* Default.png */,
-				FA40EC371666A8670005052F /* Default@2x.png */,
-				FA40EC391666A8670005052F /* Default-568h@2x.png */,
+				82B4D3421733A3E100651E74 /* Default-568h@2x.png */,
+				82B4D3431733A3E100651E74 /* Default.png */,
+				82B4D3441733A3E100651E74 /* Default@2x.png */,
 			);
-			name = Images;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		FA2A5509170175CD0030C203 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA3500251704503C0071FF2F /* ActionButton.h */,
-				FA3500261704503D0071FF2F /* ActionButton.m */,
 				FA35FFF8170426F80071FF2F /* PaletteCell.h */,
 				FA35FFF9170426F80071FF2F /* PaletteCell.m */,
 				FA35FFFA170426F80071FF2F /* PaletteCell.xib */,
@@ -177,7 +164,7 @@
 				FA0E9CFB17055652000A6647 /* PatternCell.m */,
 				FA0E9CFD17055665000A6647 /* PatternCell.xib */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FA2A551B17017F560030C203 /* Helpers */ = {
@@ -187,10 +174,8 @@
 				FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */,
 				FA35FFE917041FD90071FF2F /* NSString+Utilities.h */,
 				FA35FFEA17041FD90071FF2F /* NSString+Utilities.m */,
-				FA977D401705B602003E5AE2 /* LayoutManager.h */,
-				FA977D411705B602003E5AE2 /* LayoutManager.m */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		FA33AB8617007E5F00C05C17 /* Models */ = {
@@ -205,7 +190,7 @@
 				FA0E9CF1170551F2000A6647 /* Pattern.h */,
 				FA0E9CF2170551F2000A6647 /* Pattern.m */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FA35FFDA170411550071FF2F /* Colors */ = {
@@ -213,8 +198,8 @@
 			children = (
 				FA2A551F170180310030C203 /* ColorDetailVC.h */,
 				FA2A5520170180310030C203 /* ColorDetailVC.m */,
-				FA2A5521170180310030C203 /* ColorDetailVC.xib */,
-				FA977D431705B901003E5AE2 /* ColorDetailVC_4in.xib */,
+				FA2A5521170180310030C203 /* ColorDetailVC~iphone3_5.xib */,
+				FA977D431705B901003E5AE2 /* ColorDetailVC~iphone4.xib */,
 				FA977D361705810C003E5AE2 /* ColorsVC.h */,
 				FA977D371705810C003E5AE2 /* ColorsVC.m */,
 				FA977D381705810C003E5AE2 /* ColorsVC.xib */,
@@ -296,7 +281,7 @@
 				FA40EC2F1666A8670005052F /* main.m */,
 				FA40EC311666A8670005052F /* colors-Prefix.pch */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FA40EC461666A8720005052F /* Controllers */ = {
@@ -307,7 +292,7 @@
 				FA35FFDB170411610071FF2F /* Users */,
 				FA35FFDA170411550071FF2F /* Colors */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,23 +348,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA40EC2E1666A8670005052F /* InfoPlist.strings in Resources */,
-				FA40EC361666A8670005052F /* Default.png in Resources */,
-				FA40EC381666A8670005052F /* Default@2x.png in Resources */,
-				FA40EC3A1666A8670005052F /* Default-568h@2x.png in Resources */,
 				FA2A550C170175F60030C203 /* ColorCell.xib in Resources */,
-				FA2A5523170180310030C203 /* ColorDetailVC.xib in Resources */,
+				FA2A5523170180310030C203 /* ColorDetailVC~iphone3_5.xib in Resources */,
 				FA35FFE0170411820071FF2F /* UserDetailVC.xib in Resources */,
 				FA35FFF71704254D0071FF2F /* PalettesVC.xib in Resources */,
 				FA35FFFC170426F80071FF2F /* PaletteCell.xib in Resources */,
 				FA35000E17044F040071FF2F /* palette.png in Resources */,
 				FA35001017044F0E0071FF2F /* color.png in Resources */,
-				FA35001B170450120071FF2F /* button_pressed.png in Resources */,
-				FA35001C170450120071FF2F /* button.png in Resources */,
 				FA0E9CF01705514A000A6647 /* PatternsVC.xib in Resources */,
 				FA0E9CFE17055665000A6647 /* PatternCell.xib in Resources */,
 				FA0E9D001705607E000A6647 /* pattern.png in Resources */,
 				FA977D3A1705810C003E5AE2 /* ColorsVC.xib in Resources */,
-				FA977D441705B901003E5AE2 /* ColorDetailVC_4in.xib in Resources */,
+				FA977D441705B901003E5AE2 /* ColorDetailVC~iphone4.xib in Resources */,
+				82B4D3451733A3E100651E74 /* Default-568h@2x.png in Resources */,
+				82B4D3461733A3E100651E74 /* Default.png in Resources */,
+				82B4D3471733A3E100651E74 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,12 +402,10 @@
 				FA35FFEE170424DC0071FF2F /* Palette.m in Sources */,
 				FA35FFF61704254D0071FF2F /* PalettesVC.m in Sources */,
 				FA35FFFB170426F80071FF2F /* PaletteCell.m in Sources */,
-				FA3500271704503E0071FF2F /* ActionButton.m in Sources */,
 				FA0E9CEF1705514A000A6647 /* PatternsVC.m in Sources */,
 				FA0E9CF3170551F2000A6647 /* Pattern.m in Sources */,
 				FA0E9CFC17055652000A6647 /* PatternCell.m in Sources */,
 				FA977D391705810C003E5AE2 /* ColorsVC.m in Sources */,
-				FA977D421705B602003E5AE2 /* LayoutManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,8 +478,8 @@
 			baseConfigurationReference = D177F149CB4B412C8378F8E0 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "colors/colors-Prefix.pch";
-				INFOPLIST_FILE = "colors/colors-Info.plist";
+				GCC_PREFIX_HEADER = "colors/Supporting Files/colors-Prefix.pch";
+				INFOPLIST_FILE = "colors/Supporting Files/colors-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -509,8 +490,8 @@
 			baseConfigurationReference = D177F149CB4B412C8378F8E0 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "colors/colors-Prefix.pch";
-				INFOPLIST_FILE = "colors/colors-Info.plist";
+				GCC_PREFIX_HEADER = "colors/Supporting Files/colors-Prefix.pch";
+				INFOPLIST_FILE = "colors/Supporting Files/colors-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
