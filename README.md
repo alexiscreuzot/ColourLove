@@ -13,7 +13,7 @@ Dependencies are managed with CocoaPods, which I recommend you to have a look at
     gem install cocoapods
     pod setup
     pod install
-    open ColourLove.xcworkspace
+    open ColourLove/ColourLove.xcworkspace
 
 ## Screenshots
 

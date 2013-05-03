@@ -45,7 +45,6 @@
     }
 }
 
-
 #pragma mark - Networking
 
 - (void) requestPalettes
