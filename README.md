@@ -1,6 +1,6 @@
 # ColourLove
 
-This project only purpose is to provide brief, clean and readable code in a dummy application. 
+This project only purpose is to provide brief, clean and readable code in a dummy application.
 It is heavily library based and MVC oriented and shows mecanisms like downloading, storing and displaying data from a webservice.
 
 You are invited to use, fork and improve this project using your own knowledge.
@@ -8,12 +8,13 @@ You are invited to use, fork and improve this project using your own knowledge.
 ## How to install
 
 Dependencies are managed with CocoaPods, which I recommend you to have a look at : http://cocoapods.org/
-    
+
     git clone git@github.com:kirualex/ColourLove.git
+    cd ColourLove
     gem install cocoapods
     pod setup
     pod install
-    open ColourLove/ColourLove.xcworkspace
+    open ColourLove.xcworkspace
 
 ## Screenshots
 
