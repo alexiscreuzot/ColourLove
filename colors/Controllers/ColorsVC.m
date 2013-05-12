@@ -17,7 +17,6 @@
 // limitations under the License.
 
 #import "ColorsVC.h"
-#import "ColorDetailVC.h"
 #import "Color.h"
 #import "ColorCell.h"
 
@@ -33,7 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_searchBar setText:@""];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
@@ -131,9 +129,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Color * selectedColor = colors[indexPath.row];
-    ColorDetailVC * detailController = [[ColorDetailVC alloc] init];
-    detailController.color = selectedColor;
-    [self.navigationController pushViewController:detailController animated:YES];
+    [[Routable sharedRouter] open:[NSString stringWithFormat:@"color/%@", selectedColor.id]];
 }
 
 #pragma mark - SearchBar methods

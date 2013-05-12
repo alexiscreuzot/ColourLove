@@ -44,7 +44,7 @@ ignore_fields_do(
 
 - (UIColor *)inversedColor
 {
-    return [UIColor inversedColor:self.rgbColor];
+    return [UIColor inversedColorFor:self.rgbColor];
 }
 
 - (UIColor *)contrastColor

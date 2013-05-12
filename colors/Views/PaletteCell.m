@@ -43,38 +43,38 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    // Remove the behavior of the superclass
+    // Remove default behavior
     // by not calling [super setSelected]
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
-    // Remove the behavior of the superclass
-    // by not calling [super setSelected]
+    // Remove default behavior
+    // by not calling [super setHighlighted]
 }
 
 - (void) setPaletteDisplayed:(BOOL) displayed animated:(BOOL) animated
 {
-    [UIView beginAnimations:nil context:nil];
+    float duration;
     if(animated){
-        [UIView setAnimationDuration:0.3f];
+        duration = .3f;
     }else{
-        [UIView setAnimationDuration:0.];
+        duration = 0;
     }
     
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    CGRect frame = self.paletteImage.frame;
-    if(displayed){
-        frame.origin.x = 0;
-        frame.size.width = 320;
-        self.paletteImage.frame = frame;
+    [UIView animateWithDuration:duration animations:^{
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
         
-    }else{
-        frame.origin.x = 220;
-        frame.size.width = 100;
+        CGRect frame = self.paletteImage.frame;
+        if(displayed){
+            frame.origin.x = 0;
+            frame.size.width = 320;            
+        }else{
+            frame.origin.x = 220;
+            frame.size.width = 100;
+        }
         self.paletteImage.frame = frame;
-    }
-    [UIView commitAnimations];
+    }];
 }
 
 @end

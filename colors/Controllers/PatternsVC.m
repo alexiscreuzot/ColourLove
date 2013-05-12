@@ -32,7 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_searchBar setText:@""];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self.patternsCollectionView registerClass:[PatternCell class] forCellWithReuseIdentifier:@"PatternCell"];
 }
@@ -53,7 +52,6 @@
         }
     }
 }
-
 
 #pragma mark - Networking
 

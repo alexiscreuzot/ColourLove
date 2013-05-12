@@ -20,6 +20,4 @@
 
 @interface ColorDetailVC : KAViewController
 @property (strong, nonatomic) Color * color;
-
-- (id) initWithColor:(Color *) c;
 @end

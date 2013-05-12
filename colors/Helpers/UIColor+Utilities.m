@@ -56,7 +56,7 @@
                            alpha:1.0f];
 }
 
-+ (UIColor *) inversedColor:(UIColor *) color
++ (UIColor *) inversedColorFor:(UIColor *) color
 {
     const CGFloat *componentColors = CGColorGetComponents(color.CGColor);
     

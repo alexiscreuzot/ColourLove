@@ -28,9 +28,17 @@
 
 @implementation UserDetailVC
 
+- (id)initWithRouterParams:(NSDictionary *)params {
+    if (self = [self initWithNibName:nil bundle:nil]) {
+        _user = [[[[User lazyFetcher] whereField:@"id" equalToValue:params[@"id"]] fetchRecords] first];
+    }
+    return self;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
     
     [_nameLabel setText:_user.userName];

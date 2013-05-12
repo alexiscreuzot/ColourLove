@@ -32,12 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_searchBar setText:@""];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     // Check if palettes is nil, we need to refresh data if it's the case

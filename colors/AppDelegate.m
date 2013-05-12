@@ -19,6 +19,8 @@
 #import "AppDelegate.h"
 
 #import "ColorsVC.h"
+#import "ColorDetailVC.h"
+#import "UserDetailVC.h"
 #import "PalettesVC.h"
 #import "PatternsVC.h"
 
@@ -47,6 +49,11 @@
     // Init UITabBarController
     tabController = [[UITabBarController alloc] init];
     tabController.viewControllers = @[colorNavigationController,paletteController,patternController];
+    
+    // Set routes
+    [[Routable sharedRouter] map:@"color/:id" toController:[ColorDetailVC class]];
+    [[Routable sharedRouter] map:@"user/:id" toController:[UserDetailVC class]];
+    [[Routable sharedRouter] setNavigationController:colorNavigationController];
     
     // Set rootViewController and display
     self.window.rootViewController = tabController;

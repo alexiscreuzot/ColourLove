@@ -17,7 +17,6 @@
 // limitations under the License.
 
 #import "ColorDetailVC.h"
-#import "UserDetailVC.h"
 #import "User.h"
 
 @interface ColorDetailVC ()
@@ -32,15 +31,16 @@
     User * user;
 }
 
-- (id) initWithColor:(Color *) c{
-    if(self = [super init]){
-        _color = c;
+- (id)initWithRouterParams:(NSDictionary *)params {
+    if (self = [self initWithNibName:nil bundle:nil]) {
+        _color = [[[[Color lazyFetcher] whereField:@"id" equalToValue:params[@"id"]] fetchRecords] first];
     }
-    return  self;
+    return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 }
@@ -70,13 +70,15 @@
     [client getPath:uri parameters:@{@"format":@"json"}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
-                user = [[User newRecord] initWithDict:[operation.responseString JSONValue][0]];
-                [user save];
+                // Dismiss loader
                 [SVProgressHUD dismiss];
                 
-                UserDetailVC * detailController = [[UserDetailVC alloc] init];
-                detailController.user = user;
-                [self.navigationController pushViewController:detailController animated:YES];
+                // Save user in database
+                user = [[User newRecord] initWithDict:[operation.responseString JSONValue][0]];
+                [user save];
+                
+                // Load
+                [[Routable sharedRouter] open:[NSString stringWithFormat:@"user/%@", user.id]];
                 
             }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [SVProgressHUD showErrorWithStatus:error.localizedDescription];
@@ -89,9 +91,7 @@
 {
     user = [[[[User lazyFetcher] whereField:@"userName" equalToValue:_color.userName] fetchRecords] first];
     if(user){
-        UserDetailVC * detailController = [[UserDetailVC alloc] init];
-        detailController.user = user;
-        [self.navigationController pushViewController:detailController animated:YES];
+        [[Routable sharedRouter] open:[NSString stringWithFormat:@"user/%@", user.id]];
     }else{
         [self requestUserInfos];
     }

@@ -21,9 +21,5 @@
 @class ColorsVC;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITextFieldDelegate>
-
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) ColorsVC *viewController;
-
 @end

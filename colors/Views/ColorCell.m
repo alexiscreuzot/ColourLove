@@ -47,25 +47,25 @@
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
-    //[self colorBackground:YES];
+    // Remove default behavior
+    // by not calling [super setHighlighted]
 }
 
 // Animate background color change
 - (void) colorBackground:(BOOL) doColor
 {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3f];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    if(doColor){
-        self.backgroundColor = _color.rgbColor;
-        self.titleLabel.textColor = _color.contrastColor;
-        self.subtitleLabel.textColor = _color.contrastColor;
-    }else{
-        self.backgroundColor = [UIColor whiteColor];
-        self.titleLabel.textColor = [UIColor blackColor];
-        self.subtitleLabel.textColor = [UIColor lightGrayColor];
-    }
-    [UIView commitAnimations];
+    [UIView animateWithDuration:.3f animations:^{
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        if(doColor){
+            self.backgroundColor = _color.rgbColor;
+            self.titleLabel.textColor = _color.contrastColor;
+            self.subtitleLabel.textColor = _color.contrastColor;
+        }else{
+            self.backgroundColor = [UIColor whiteColor];
+            self.titleLabel.textColor = [UIColor blackColor];
+            self.subtitleLabel.textColor = [UIColor lightGrayColor];
+        }
+    }];
 }
 
 @end
