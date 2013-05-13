@@ -22,22 +22,23 @@ Dependencies are managed with CocoaPods, which I recommend you to have a look at
 
 Here is the file hierarchy as is in the project. We aim to have a clear view of our MVC components.
 
-		.
-    |-- Classes
-    |   |-- AppDelegate.h
-    |   |-- AppDelegate.m
-    |   |-- Constants.h
-    |   |-- Models
-    |   |-- Controllers
-    |   |-- Views
-    |   |-- Helpers
-    |-- Supporting Files
-    |-- Resources
-        |-- Images
-    |-- Frameworks
-    |-- Products
-    |-- Pods.xcconfig
-
+```
+.
+|-- Classes
+|   |-- AppDelegate.h
+|   |-- AppDelegate.m
+|   |-- Constants.h
+|   |-- Models
+|   |-- Controllers
+|   |-- Views
+|   |-- Helpers
+|-- Supporting Files
+|-- Resources
+    |-- Images
+|-- Frameworks
+|-- Products
+|-- Pods.xcconfig
+```
 
 ### Conventions
 
