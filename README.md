@@ -61,16 +61,16 @@ All code should respect (K&R style : <http://en.wikipedia.org/wiki/Indent_style#
 
 #### Fast declarations
 
-`[NSArray array]` should be `@[]`
-`[NSArray arrayWithObjects:@”foo”, @”bar”,nil]` should be `@[@”foo”,@”bar”]`
-`[array objectAtIndex:index] should be `array[index]`
+- `[NSArray array]` should be `@[]`
+- `[NSArray arrayWithObjects:@”foo”, @”bar”,nil]` should be `@[@”foo”,@”bar”]`
+- `[array objectAtIndex:index] should be `array[index]`
 
-`[NSDictionary dictionary]` should be `@{}`
-`[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]` should be `@[@”key” : @”object”]`
-`[dictionary objectForKey:key]` should be `dictionary[key]`
+- `[NSDictionary dictionary]` should be `@{}`
+- `[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]` should be `@[@”key” : @”object”]`
+- `[dictionary objectForKey:key]` should be `dictionary[key]`
 
-`[NSNumber numberWithInt:1]` should be `@1`
-`[NSNumber numberWithFloat:3.14]` should be `@3.14`
+- `[NSNumber numberWithInt:1]` should be `@1`
+- `[NSNumber numberWithFloat:3.14]` should be `@3.14`
 
 
 ## How to install
