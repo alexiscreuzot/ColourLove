@@ -17,7 +17,7 @@
     <div class="wrapper">
       <header>
         <h1 class="header">Colourlove</h1>
-        <p class="header">A sample app for iOS</p>
+        <p class="header">A dummy app for iOS</p>
 
         <ul>
           <li class="download"><a class="buttons" href="https://github.com/kirualex/ColourLove/zipball/master">Download ZIP</a></li>
@@ -32,20 +32,88 @@
       <section>
         <h1>ColourLove</h1>
 
-<p>This project only purpose is to provide brief, clean and readable code in a dummy application. 
+<p>This project only purpose is to provide brief, clean and readable code in a dummy application.
 It is heavily library based and MVC oriented and shows mecanisms like downloading, storing and displaying data from a webservice.</p>
 
-<p>You are invited to use, fork and improve this project using your own knowledge.</p>
+<p>You are of course invited to use, fork and improve this project using your own knowledge.</p>
+
+<h2>Philosophy</h2>
+
+<h3>Architecture</h3>
+
+<p>Here is the file hierarchy as is in the project. We aim to have a clear view of our MVC components.</p>
+
+<pre><code>.
+|-- Classes
+|   |-- AppDelegate.h
+|   |-- AppDelegate.m
+|   |-- Constants.h
+|   |-- Models
+|   |-- Controllers
+|   |-- Views
+|   |-- Helpers
+|-- Supporting Files
+|-- Resources
+    |-- Images
+|-- Frameworks
+|-- Products
+|-- Pods.xcconfig
+</code></pre>
+
+<h3>Conventions</h3>
+
+<p>In this project I rely on some naming conventions :</p>
+
+<h4>Classes</h4>
+
+<ul>
+<li>ViewControllers are suffixed by 'VC'</li>
+<li>Models should be self-explanatory and match the server model (if any)</li>
+<li>Custom views should indicate the superclass type (like <code>ColorCell</code> which extends <code>UITableViewCell</code>)</li>
+</ul><h4>Methods</h4>
+
+<ul>
+<li>Networking methods should always begin with the keyword <code>request</code>, like <code>requestColors</code>
+</li>
+<li>User interaction method should always begin with <code>select</code>
+</li>
+</ul><h3>Best practices</h3>
+
+<h4>K&amp;R indentation</h4>
+
+<p>All code should respect (K&amp;R style : <a href="http://en.wikipedia.org/wiki/Indent_style#K.26R_style">http://en.wikipedia.org/wiki/Indent_style#K.26R_style</a>)</p>
+
+<div class="highlight"><pre>    <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">foo</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">bar</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+            <span class="n">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> 
+</pre></div>
+
+<h4>Fast declarations</h4>
+
+<p><code>[NSArray array]</code> should be <code>@[]</code>
+<code>[NSArray arrayWithObjects:@”foo”, @”bar”,nil]</code> should be <code>@[@”foo”,@”bar”]</code>
+<code>[array objectAtIndex:index] should be</code>array[index]`</p>
+
+<p><code>[NSDictionary dictionary]</code> should be <code>@{}</code>
+<code>[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]</code> should be <code>@[@”key” : @”object”]</code>
+<code>[dictionary objectForKey:key]</code> should be <code>dictionary[key]</code></p>
+
+<p><code>[NSNumber numberWithInt:1]</code> should be <code>@1</code>
+<code>[NSNumber numberWithFloat:3.14]</code> should be <code>@3.14</code></p>
 
 <h2>How to install</h2>
 
 <p>Dependencies are managed with CocoaPods, which I recommend you to have a look at : <a href="http://cocoapods.org/">http://cocoapods.org/</a></p>
 
 <pre><code>git clone git@github.com:kirualex/ColourLove.git
+cd ColourLove
 gem install cocoapods
 pod setup
 pod install
-open ColourLove/ColourLove.xcworkspace
+open ColourLove.xcworkspace
 </code></pre>
 
 <h2>Screenshots</h2>
