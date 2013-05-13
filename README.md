@@ -3,18 +3,7 @@
 This project only purpose is to provide brief, clean and readable code in a dummy application.
 It is heavily library based and MVC oriented and shows mecanisms like downloading, storing and displaying data from a webservice.
 
-You are invited to use, fork and improve this project using your own knowledge.
-
-## How to install
-
-Dependencies are managed with CocoaPods, which I recommend you to have a look at : http://cocoapods.org/
-
-    git clone git@github.com:kirualex/ColourLove.git
-    cd ColourLove
-    gem install cocoapods
-    pod setup
-    pod install
-    open ColourLove.xcworkspace
+You are of course invited to use, fork and improve this project using your own knowledge.
 
 ## Philosophy
 
@@ -38,7 +27,7 @@ Here is the file hierarchy as is in the project. We aim to have a clear view of 
 |-- Frameworks
 |-- Products
 |-- Pods.xcconfig
-```
+``
 
 ### Conventions
 
@@ -72,16 +61,28 @@ All code should respect (K&R style : <http://en.wikipedia.org/wiki/Indent_style#
 
 #### Fast declarations
 
-- `[NSArray array]` should be `@[]`
-	`[NSArray arrayWithObjects:@”foo”, @”bar”,nil]` should be `@[@”foo”,@”bar”]`
-	`[array objectAtIndex:index] should be `array[index]`
+`[NSArray array]` should be `@[]`
+`[NSArray arrayWithObjects:@”foo”, @”bar”,nil]` should be `@[@”foo”,@”bar”]`
+`[array objectAtIndex:index] should be `array[index]`
 
-- `[NSDictionary dictionary]` should be `@{}`
-	`[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]` should be `@[@”key” : @”object”]`
-	`[dictionary objectForKey:key]` should be `dictionary[key]`
+`[NSDictionary dictionary]` should be `@{}`
+`[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]` should be `@[@”key” : @”object”]`
+`[dictionary objectForKey:key]` should be `dictionary[key]`
 
-- `[NSNumber numberWithInt:1]` should be `@1`
-	`[NSNumber numberWithFloat:3.14]` should be `@3.14`
+`[NSNumber numberWithInt:1]` should be `@1`
+`[NSNumber numberWithFloat:3.14]` should be `@3.14`
+
+
+## How to install
+
+Dependencies are managed with CocoaPods, which I recommend you to have a look at : http://cocoapods.org/
+
+    git clone git@github.com:kirualex/ColourLove.git
+    cd ColourLove
+    gem install cocoapods
+    pod setup
+    pod install
+    open ColourLove.xcworkspace
 
 
 
