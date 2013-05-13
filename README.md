@@ -16,6 +16,74 @@ Dependencies are managed with CocoaPods, which I recommend you to have a look at
     pod install
     open ColourLove.xcworkspace
 
+## Philosophy
+
+### Architecture
+
+Here is the file hierarchy as is in the project. We aim to have a clear view of our MVC components.
+
+		.
+    |-- Classes
+    |   |-- AppDelegate.h
+    |   |-- AppDelegate.m
+    |   |-- Constants.h
+    |   |-- Models
+    |   |-- Controllers
+    |   |-- Views
+    |   |-- Helpers
+    |-- Supporting Files
+    |-- Resources
+        |-- Images
+    |-- Frameworks
+    |-- Products
+    |-- Pods.xcconfig
+
+
+### Conventions
+
+In this project I rely on some naming conventions :
+
+#### Classes
+
+- ViewControllers are suffixed by 'VC'
+- Models should be self-explanatory and match the server model (if any)
+- Custom views should indicate the superclass type (like `ColorCell` which extends `UITableViewCell`)
+
+#### Methods
+
+- Networking methods should always begin with the keyword `request`, like `requestColors`
+- User interaction method should always begin with `select`
+
+### Best practices
+
+#### K&R indentation
+
+All code should respect (K&R style : <http://en.wikipedia.org/wiki/Indent_style#K.26R_style>)
+
+``` objective-c
+	- (void) foo
+	{
+	    if(bar == 1){
+	        bar = 2;
+	    }
+	} 
+```
+
+#### Fast declarations
+
+- `[NSArray array]` should be `@[]`
+	`[NSArray arrayWithObjects:@”foo”, @”bar”,nil]` should be `@[@”foo”,@”bar”]`
+	`[array objectAtIndex:index] should be `array[index]`
+
+- `[NSDictionary dictionary]` should be `@{}`
+	`[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]` should be `@[@”key” : @”object”]`
+	`[dictionary objectForKey:key]` should be `dictionary[key]`
+
+- `[NSNumber numberWithInt:1]` should be `@1`
+	`[NSNumber numberWithFloat:3.14]` should be `@3.14`
+
+
+
 ## Screenshots
 
 ### ColorsVC

@@ -231,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				FA40EC291666A8670005052F /* Classes */,
+				FA40EC2A1666A8670005052F /* Supporting Files */,
 				FA1D624416FF2C1D0028D563 /* Resources */,
 				FA40EC221666A8670005052F /* Frameworks */,
 				FA40EC201666A8670005052F /* Products */,
@@ -267,7 +268,6 @@
 				FA40EC461666A8720005052F /* Controllers */,
 				FA2A5509170175CD0030C203 /* Views */,
 				FA2A551B17017F560030C203 /* Helpers */,
-				FA40EC2A1666A8670005052F /* Supporting Files */,
 			);
 			name = Classes;
 			path = colors;
@@ -281,7 +281,8 @@
 				FA40EC2F1666A8670005052F /* main.m */,
 				FA40EC311666A8670005052F /* colors-Prefix.pch */,
 			);
-			path = "Supporting Files";
+			name = "Supporting Files";
+			path = "colors/Supporting Files";
 			sourceTree = "<group>";
 		};
 		FA40EC461666A8720005052F /* Controllers */ = {
