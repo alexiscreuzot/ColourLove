@@ -33,6 +33,8 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    [_searchBar setText:@""];
     [self.patternsCollectionView registerClass:[PatternCell class] forCellWithReuseIdentifier:@"PatternCell"];
 }
 

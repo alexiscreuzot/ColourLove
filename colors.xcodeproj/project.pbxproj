@@ -231,8 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				FA40EC291666A8670005052F /* Classes */,
-				FA40EC2A1666A8670005052F /* Supporting Files */,
 				FA1D624416FF2C1D0028D563 /* Resources */,
+				FA40EC2A1666A8670005052F /* Supporting Files */,
 				FA40EC221666A8670005052F /* Frameworks */,
 				FA40EC201666A8670005052F /* Products */,
 				D177F149CB4B412C8378F8E0 /* Pods.xcconfig */,
@@ -288,10 +288,10 @@
 		FA40EC461666A8720005052F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA35FFDA170411550071FF2F /* Colors */,
 				FA0E9CEB17055138000A6647 /* Patterns */,
 				FA35FFEF170424EC0071FF2F /* Palettes */,
 				FA35FFDB170411610071FF2F /* Users */,
-				FA35FFDA170411550071FF2F /* Colors */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

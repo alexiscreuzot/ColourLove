@@ -41,7 +41,7 @@
     PalettesVC * paletteController = [[PalettesVC alloc] init];
     paletteController.title = @"Palettes";
     paletteController.tabBarItem.image = [UIImage imageNamed:@"palette"];
-
+    
     PatternsVC * patternController = [[PatternsVC alloc] init];
     patternController.title = @"Patterns";
     patternController.tabBarItem.image = [UIImage imageNamed:@"pattern"];
@@ -58,10 +58,9 @@
     // Set rootViewController and display
     self.window.rootViewController = tabController;
     [self.window makeKeyAndVisible];
-    
+        
     return YES;
 }
-
 
 
 @end
