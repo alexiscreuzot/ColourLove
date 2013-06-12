@@ -64,31 +64,34 @@ All code should respect (K&R style : <http://en.wikipedia.org/wiki/Indent_style#
 Use fast declarations as much as possible gives a more readable, less cluttered code.
 
 ``` objective-c
-// Arrays
-// No
-[NSArray array]
-[NSArray arrayWithObjects:@”foo”, @”bar”,nil]
-[array objectAtIndex:index]
-// Yes
-@[]
-@[@”foo”,@”bar”]
-array[index]
+- (void) fastDeclarations
+{
+    // Arrays
+    // No
+    [NSArray array];
+    [NSArray arrayWithObjects:@”foo”, @”bar”,nil];
+    [array objectAtIndex:index];
+    // Yes
+    @[];
+    @[@”foo”,@”bar”];
+    array[index];
 
-// Dictionaries
-// No
-[NSDictionary dictionary]
-[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]
-[dictionary objectForKey:key]
-// Yes
-@{}
-@{@”key” : @”object”}
-dictionary[key]
+    // Dictionaries
+    // No
+    [NSDictionary dictionary];
+    [NSDictionary dictionaryWithObjects:@”object”, @”key”,nil];
+    [dictionary objectForKey:key];
+    // Yes
+    @{};
+    @{@”key” : @”object”};
+    dictionary[key];
 
-// Numbers
-// No
-[NSNumber numberWithInt:1]
-// Yes
-@1
+    // Numbers
+    // No
+    [NSNumber numberWithInt:1];
+    // Yes
+    @1;
+}
 ```
 
 ## How to install
