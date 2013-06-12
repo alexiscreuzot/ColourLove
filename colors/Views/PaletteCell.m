@@ -18,27 +18,23 @@
 
 #import "PaletteCell.h"
 
-@implementation PaletteCell{
-    BOOL statusSelected;
-}
+@implementation PaletteCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PaletteCell" owner:self options:nil];
         self = nib[0];
-        statusSelected = NO;
     }
     return self;
 }
 
 - (void) displayForPalette:(Palette *) palette
 {
-    statusSelected = palette.selected;
     [self.titleLabel setText:palette.title];
     [self.subtitleLabel setText:palette.userName];
     [self.paletteImage setImageWithURL:[NSURL URLWithString:palette.imageUrl]];
-    [self setPaletteDisplayed:statusSelected animated:NO];
+    [self setPaletteDisplayed:palette.selected animated:NO];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
