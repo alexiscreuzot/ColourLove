@@ -56,22 +56,40 @@ All code should respect (K&R style : <http://en.wikipedia.org/wiki/Indent_style#
 	    if(bar == 1){
 	        bar = 2;
 	    }
-	} 
+	}
 ```
 
 #### Fast declarations
 
-- `[NSArray array]` should be `@[]`
-- `[NSArray arrayWithObjects:@”foo”, @”bar”,nil]` should be `@[@”foo”,@”bar”]`
-- `[array objectAtIndex:index] should be `array[index]`
+Use fast declarations as much as possible gives a more readable, less cluttered code.
 
-- `[NSDictionary dictionary]` should be `@{}`
-- `[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]` should be `@[@”key” : @”object”]`
-- `[dictionary objectForKey:key]` should be `dictionary[key]`
+``` objective-c
+// Arrays
+// No
+[NSArray array]
+[NSArray arrayWithObjects:@”foo”, @”bar”,nil]
+[array objectAtIndex:index]
+// Yes
+@[]
+@[@”foo”,@”bar”]
+array[index]
 
-- `[NSNumber numberWithInt:1]` should be `@1`
-- `[NSNumber numberWithFloat:3.14]` should be `@3.14`
+// Dictionaries
+// No
+[NSDictionary dictionary]
+[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]
+[dictionary objectForKey:key]
+// Yes
+@{}
+@{@”key” : @”object”}
+dictionary[key]
 
+// Numbers
+// No
+[NSNumber numberWithInt:1]
+// Yes
+@1
+```
 
 ## How to install
 
