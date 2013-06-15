@@ -94,26 +94,42 @@ It is heavily library based and MVC oriented and shows mecanisms like downloadin
         <span class="k">if</span><span class="p">(</span><span class="n">bar</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
             <span class="n">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
         <span class="p">}</span>
-    <span class="p">}</span> 
+    <span class="p">}</span>
 </pre></div>
 
 <h4>
 <a name="fast-declarations" class="anchor" href="#fast-declarations"><span class="octicon octicon-link"></span></a>Fast declarations</h4>
 
-<ul>
-<li>
-<code>[NSArray array]</code> should be <code>@[]</code>
-</li>
-<li>
-<code>[NSArray arrayWithObjects:@”foo”, @”bar”,nil]</code> should be <code>@[@”foo”,@”bar”]</code>
-</li>
-<li><p><code>[array objectAtIndex:index] should be</code>array[index]`</p></li>
-<li><p><code>[NSDictionary dictionary]</code> should be <code>@{}</code></p></li>
-<li><p><code>[NSDictionary dictionaryWithObjects:@”object”, @”key”,nil]</code> should be <code>@[@”key” : @”object”]</code></p></li>
-<li><p><code>[dictionary objectForKey:key]</code> should be <code>dictionary[key]</code></p></li>
-<li><p><code>[NSNumber numberWithInt:1]</code> should be <code>@1</code></p></li>
-<li><p><code>[NSNumber numberWithFloat:3.14]</code> should be <code>@3.14</code></p></li>
-</ul><h2>
+<p>Use fast declarations as much as possible gives a more readable, less cluttered code.</p>
+
+<div class="highlight"><pre><span class="c1">// Arrays</span>
+<span class="c1">// No</span>
+<span class="p">[</span><span class="n">NSArray</span> <span class="n">array</span><span class="p">];</span>
+<span class="p">[</span><span class="n">NSArray</span> <span class="n">arrayWithObjects</span><span class="o">:</span><span class="s">@"foo"</span><span class="p">,</span> <span class="s">@"bar"</span><span class="p">,</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[</span><span class="n">array</span> <span class="n">objectAtIndex</span><span class="o">:</span><span class="n">index</span><span class="p">];</span>
+<span class="c1">// Yes</span>
+<span class="err">@</span><span class="p">[];</span>
+<span class="err">@</span><span class="p">[</span><span class="s">@"foo"</span><span class="p">,</span><span class="s">@"bar"</span><span class="p">];</span>
+<span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+
+<span class="c1">// Dictionaries</span>
+<span class="c1">// No</span>
+<span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionary</span><span class="p">];</span>
+<span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjects</span><span class="o">:</span><span class="s">@"object"</span><span class="p">,</span> <span class="s">@"key"</span><span class="p">,</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[</span><span class="n">dictionary</span> <span class="n">objectForKey</span><span class="o">:</span><span class="n">key</span><span class="p">];</span>
+<span class="c1">// Yes</span>
+<span class="err">@</span><span class="p">{};</span>
+<span class="err">@</span><span class="p">{</span><span class="s">@"key"</span> <span class="o">:</span> <span class="s">@"object"</span><span class="p">};</span>
+<span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">];</span>
+
+<span class="c1">// Numbers</span>
+<span class="c1">// No</span>
+<span class="p">[</span><span class="n">NSNumber</span> <span class="n">numberWithInt</span><span class="o">:</span><span class="mi">1</span><span class="p">];</span>
+<span class="c1">// Yes</span>
+<span class="mi">@1</span><span class="p">;</span>
+</pre></div>
+
+<h2>
 <a name="how-to-install" class="anchor" href="#how-to-install"><span class="octicon octicon-link"></span></a>How to install</h2>
 
 <p>Dependencies are managed with CocoaPods, which I recommend you to have a look at : <a href="http://cocoapods.org/">http://cocoapods.org/</a></p>
