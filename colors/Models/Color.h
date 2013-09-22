@@ -20,10 +20,10 @@
 @property (strong,nonatomic) NSString * title;
 @property (strong,nonatomic) NSString * userName;
 @property (strong,nonatomic) NSString * hexString;
-@property (strong,nonatomic) UIColor * rgbColor;
-@property (strong,nonatomic) UIColor * inversedColor;
-@property (strong,nonatomic) UIColor * contrastColor;
 
 - (id) initWithDict:(NSDictionary *) dict;
 
+- (UIColor *)rgbColor;
+- (UIColor *)inversedColor;
+- (UIColor *)contrastColor;
 @end

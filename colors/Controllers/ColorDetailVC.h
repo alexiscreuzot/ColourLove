@@ -18,6 +18,6 @@
 
 #import "Color.h"
 
-@interface ColorDetailVC : KAViewController
+@interface ColorDetailVC : UIViewController
 @property (strong, nonatomic) Color * color;
 @end

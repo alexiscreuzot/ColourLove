@@ -32,16 +32,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+    [self setEdgesForExtendedLayout:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight];
+    self.title = @"Patterns";
     [_searchBar setText:@""];
     [self.patternsCollectionView registerClass:[PatternCell class] forCellWithReuseIdentifier:@"PatternCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    
+{    
     // Check if patterns is nil, we need to refresh data if it's the case
     // We then check the database, and only proceed to do a web request
     // if the database doesn't return any results

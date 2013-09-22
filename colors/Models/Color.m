@@ -17,15 +17,9 @@
 // limitations under the License.
 
 #import "Color.h"
-#import "UIColor+Utilities.h"
 
 @implementation Color
 
-ignore_fields_do(
-                 ignore_field(rgbColor)
-                 ignore_field(inversedColor)
-                 ignore_field(contrastColor)
-                 )
 
 - (id) initWithDict:(NSDictionary *) dict{
     if(self = [super init]){

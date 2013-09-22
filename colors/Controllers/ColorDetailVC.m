@@ -17,6 +17,7 @@
 // limitations under the License.
 
 #import "ColorDetailVC.h"
+#import "UserDetailVC.h"
 #import "User.h"
 
 @interface ColorDetailVC ()
@@ -31,13 +32,6 @@
     User * user;
 }
 
-- (id)initWithRouterParams:(NSDictionary *)params {
-    if (self = [self initWithNibName:nil bundle:nil]) {
-        _color = [[[[Color lazyFetcher] whereField:@"id" equalToValue:params[@"id"]] fetchRecords] first];
-    }
-    return self;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -48,15 +42,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_colorView setBackgroundColor:_color.rgbColor];
+    
+    self.view.backgroundColor = _color.rgbColor;
+    self.title = _color.title;
+    
     [_hexLabel setText:[NSString stringWithFormat:@"#%@",_color.hexString]];
     [_hexLabel setTextColor:_color.contrastColor];
-    [_titleLabel setText:_color.title];
-    [_subtitleLabel setText:_color.userName];
     
-    [_userButton setBackgroundColor:_color.rgbColor];
+    [_userButton setTitle:_color.userName forState:UIControlStateNormal];
     [_userButton setTitleColor:_color.contrastColor forState:UIControlStateNormal];
-    [_userButton setTitleColor:_color.contrastColor forState:UIControlStateNormal];
+    [_userButton.layer setCornerRadius:5];
+    [_userButton.layer setBorderColor:_color.contrastColor.CGColor];
+    [_userButton.layer setBorderWidth:1];
 }
 
 #pragma mark - Networking
@@ -78,7 +75,9 @@
                 [user save];
                 
                 // Load
-                [[Routable sharedRouter] open:[NSString stringWithFormat:@"user/%@", user.id]];
+                UserDetailVC * userController = [UserDetailVC new];
+                userController.user = user;
+                [self.navigationController pushViewController:userController animated:YES];
                 
             }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [SVProgressHUD showErrorWithStatus:error.localizedDescription];
@@ -91,7 +90,9 @@
 {
     user = [[[[User lazyFetcher] whereField:@"userName" equalToValue:_color.userName] fetchRecords] first];
     if(user){
-        [[Routable sharedRouter] open:[NSString stringWithFormat:@"user/%@", user.id]];
+        UserDetailVC * userController = [UserDetailVC new];
+        userController.user = user;
+        [self.navigationController pushViewController:userController animated:YES];
     }else{
         [self requestUserInfos];
     }

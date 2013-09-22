@@ -32,15 +32,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+    [self setEdgesForExtendedLayout:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight];
+    self.title = @"Palettes";
     [_searchBar setText:@""];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     // Check if palettes is nil, we need to refresh data if it's the case
     // We then check the database, and only proceed to do a web request

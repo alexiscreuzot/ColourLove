@@ -21,7 +21,6 @@
 		FA2A551A170177840030C203 /* ColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A5519170177840030C203 /* ColorCell.m */; };
 		FA2A551E17017F6D0030C203 /* UIColor+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */; };
 		FA2A5522170180310030C203 /* ColorDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2A5520170180310030C203 /* ColorDetailVC.m */; };
-		FA2A5523170180310030C203 /* ColorDetailVC~iphone3_5.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A5521170180310030C203 /* ColorDetailVC~iphone3_5.xib */; };
 		FA33AB8A17007E7C00C05C17 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = FA33AB8917007E7C00C05C17 /* Color.m */; };
 		FA35000E17044F040071FF2F /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = FA35000D17044F040071FF2F /* palette.png */; };
 		FA35001017044F0E0071FF2F /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = FA35000F17044F0E0071FF2F /* color.png */; };
@@ -42,7 +41,7 @@
 		FA40EC341666A8670005052F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40EC331666A8670005052F /* AppDelegate.m */; };
 		FA977D391705810C003E5AE2 /* ColorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977D371705810C003E5AE2 /* ColorsVC.m */; };
 		FA977D3A1705810C003E5AE2 /* ColorsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D381705810C003E5AE2 /* ColorsVC.xib */; };
-		FA977D441705B901003E5AE2 /* ColorDetailVC~iphone4.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D431705B901003E5AE2 /* ColorDetailVC~iphone4.xib */; };
+		FA977D441705B901003E5AE2 /* ColorDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D431705B901003E5AE2 /* ColorDetailVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +66,6 @@
 		FA2A551D17017F6D0030C203 /* UIColor+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utilities.m"; sourceTree = "<group>"; };
 		FA2A551F170180310030C203 /* ColorDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorDetailVC.h; sourceTree = "<group>"; };
 		FA2A5520170180310030C203 /* ColorDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorDetailVC.m; sourceTree = "<group>"; };
-		FA2A5521170180310030C203 /* ColorDetailVC~iphone3_5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ColorDetailVC~iphone3_5.xib"; sourceTree = "<group>"; };
 		FA33AB8817007E7C00C05C17 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		FA33AB8917007E7C00C05C17 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		FA35000D17044F040071FF2F /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
@@ -101,7 +99,7 @@
 		FA977D361705810C003E5AE2 /* ColorsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsVC.h; sourceTree = "<group>"; };
 		FA977D371705810C003E5AE2 /* ColorsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorsVC.m; sourceTree = "<group>"; };
 		FA977D381705810C003E5AE2 /* ColorsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorsVC.xib; sourceTree = "<group>"; };
-		FA977D431705B901003E5AE2 /* ColorDetailVC~iphone4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ColorDetailVC~iphone4.xib"; sourceTree = "<group>"; };
+		FA977D431705B901003E5AE2 /* ColorDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorDetailVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,13 +194,12 @@
 		FA35FFDA170411550071FF2F /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				FA2A551F170180310030C203 /* ColorDetailVC.h */,
-				FA2A5520170180310030C203 /* ColorDetailVC.m */,
-				FA2A5521170180310030C203 /* ColorDetailVC~iphone3_5.xib */,
-				FA977D431705B901003E5AE2 /* ColorDetailVC~iphone4.xib */,
 				FA977D361705810C003E5AE2 /* ColorsVC.h */,
 				FA977D371705810C003E5AE2 /* ColorsVC.m */,
 				FA977D381705810C003E5AE2 /* ColorsVC.xib */,
+				FA2A551F170180310030C203 /* ColorDetailVC.h */,
+				FA2A5520170180310030C203 /* ColorDetailVC.m */,
+				FA977D431705B901003E5AE2 /* ColorDetailVC.xib */,
 			);
 			name = Colors;
 			sourceTree = "<group>";
@@ -350,7 +347,6 @@
 			files = (
 				FA40EC2E1666A8670005052F /* InfoPlist.strings in Resources */,
 				FA2A550C170175F60030C203 /* ColorCell.xib in Resources */,
-				FA2A5523170180310030C203 /* ColorDetailVC~iphone3_5.xib in Resources */,
 				FA35FFE0170411820071FF2F /* UserDetailVC.xib in Resources */,
 				FA35FFF71704254D0071FF2F /* PalettesVC.xib in Resources */,
 				FA35FFFC170426F80071FF2F /* PaletteCell.xib in Resources */,
@@ -360,7 +356,7 @@
 				FA0E9CFE17055665000A6647 /* PatternCell.xib in Resources */,
 				FA0E9D001705607E000A6647 /* pattern.png in Resources */,
 				FA977D3A1705810C003E5AE2 /* ColorsVC.xib in Resources */,
-				FA977D441705B901003E5AE2 /* ColorDetailVC~iphone4.xib in Resources */,
+				FA977D441705B901003E5AE2 /* ColorDetailVC.xib in Resources */,
 				82B4D3451733A3E100651E74 /* Default-568h@2x.png in Resources */,
 				82B4D3461733A3E100651E74 /* Default.png in Resources */,
 				82B4D3471733A3E100651E74 /* Default@2x.png in Resources */,

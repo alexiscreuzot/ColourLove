@@ -4,6 +4,31 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Pods-SBJson.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Pods-SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Pods-iActiveRecord.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,12 +37,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0EDF742225484061A56018C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1780B44E32144E799FF8B908</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>271FEE0BD5B141D1913011BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>498DC7A661C6414EBAF8327C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>49DE3BF226C346AEB7C5CFC7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4B30C4FB31EA43408DCFE64E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>6574C89707084095B2FC9137</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>73569B5DCA364261ACF2BAAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,12 +87,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A1E6FA45DFC947FC86BEF554</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A231CA0B43A447BC9C72074C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA5C2062540C4E8E9D052B65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BA4D1D080C5C447BA3788931</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>CD21BE89B2A6430DA90BFD37</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CFDA80BC8CDC4CB5B762486C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D30B928D16994401936B6FAD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC90E640BA0A454EB929FBB9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

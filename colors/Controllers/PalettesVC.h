@@ -16,6 +16,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@interface PalettesVC : KAViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface PalettesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @end

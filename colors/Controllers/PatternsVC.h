@@ -16,6 +16,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@interface PatternsVC : KAViewController<UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
+@interface PatternsVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
 @end

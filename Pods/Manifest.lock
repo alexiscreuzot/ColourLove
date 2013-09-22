@@ -1,32 +1,22 @@
 PODS:
-  - AFNetworking (0.10.1)
+  - AFNetworking (1.3.2)
   - iActiveRecord (1.3.2)
-  - KANibHelper (0.1)
-  - Routable (0.0.2)
   - SBJson (3.1)
   - SDWebImage (2.4)
   - SVProgressHUD (0.9)
 
 DEPENDENCIES:
-  - AFNetworking (= 0.10.1)
-  - iActiveRecord
-  - KANibHelper (from `https://github.com/kirualex/KANibHelper.git`)
-  - Routable
-  - SBJson (= 3.1)
-  - SDWebImage (= 2.4)
-  - SVProgressHUD
-
-EXTERNAL SOURCES:
-  KANibHelper:
-    :git: https://github.com/kirualex/KANibHelper.git
+  - AFNetworking (~> 1.3)
+  - iActiveRecord (~> 1.3)
+  - SBJson (~> 3.1)
+  - SDWebImage (~> 2.4)
+  - SVProgressHUD (~> 0.9)
 
 SPEC CHECKSUMS:
-  AFNetworking: df1042246c17373b96f12f04bf5c6e1c25992cd4
+  AFNetworking: 7f9bcd7c287a75476cd5c61e82fd3380e93e4c54
   iActiveRecord: 2319d12de2f6cf4e2552e9e91bd5d67c71e9fbeb
-  KANibHelper: 0f3b7059ac1af3ac3ed363a438a4b374461c5a26
-  Routable: d3a11095cd57a2a62e6804b77ba69a68a8671458
   SBJson: 0c76c1e4ec7c4fbf9c9c0d9fa78cb3c5743cbe9a
   SDWebImage: 83073356b7aa4aa66a5e69447fb9aedef6a7f306
   SVProgressHUD: 03d4845ec8e64591726428a08236c6a5489d45f8
 
-COCOAPODS: 0.19.1
+COCOAPODS: 0.24.0

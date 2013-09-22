@@ -18,6 +18,6 @@
 
 #import"User.h"
 
-@interface UserDetailVC : KAViewController
+@interface UserDetailVC : UIViewController
 @property (strong,nonatomic) User * user;
 @end

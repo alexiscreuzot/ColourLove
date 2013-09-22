@@ -34,28 +34,25 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Init both Navigation controllers with respective rootControllers
-    ColorsVC * colorController = [[ColorsVC alloc] init];
+    ColorsVC * colorController = [ColorsVC new];
     colorController.title = @"Colors";
     colorController.tabBarItem.image = [UIImage imageNamed:@"color"];
     UINavigationController * colorNavigationController = [[UINavigationController alloc] initWithRootViewController:colorController];
     
-    PalettesVC * paletteController = [[PalettesVC alloc] init];
+    PalettesVC * paletteController = [PalettesVC new];
     paletteController.title = @"Palettes";
     paletteController.tabBarItem.image = [UIImage imageNamed:@"palette"];
+    UINavigationController * paletteNavigationController = [[UINavigationController alloc] initWithRootViewController:paletteController];
     
-    PatternsVC * patternController = [[PatternsVC alloc] init];
+    PatternsVC * patternController = [PatternsVC new];
     patternController.title = @"Patterns";
     patternController.tabBarItem.image = [UIImage imageNamed:@"pattern"];
+    UINavigationController * patternNavigationController = [[UINavigationController alloc] initWithRootViewController:patternController];
     
     // Init UITabBarController
-    tabController = [[UITabBarController alloc] init];
-    tabController.viewControllers = @[colorNavigationController,paletteController,patternController];
-    
-    // Set routes
-    [[Routable sharedRouter] map:@"color/:id" toController:[ColorDetailVC class]];
-    [[Routable sharedRouter] map:@"user/:id" toController:[UserDetailVC class]];
-    [[Routable sharedRouter] setNavigationController:colorNavigationController];
-    
+    tabController = [UITabBarController new];
+    tabController.viewControllers = @[colorNavigationController,paletteNavigationController,patternNavigationController];
+
     // Set rootViewController and display
     self.window.rootViewController = tabController;
     [self.window makeKeyAndVisible];

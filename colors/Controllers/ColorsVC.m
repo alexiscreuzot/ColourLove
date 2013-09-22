@@ -17,8 +17,11 @@
 // limitations under the License.
 
 #import "ColorsVC.h"
+#import "ColorDetailVC.h"
+
 #import "Color.h"
 #import "ColorCell.h"
+#import "Constants.h"
 
 @interface ColorsVC ()
 @property (weak, nonatomic) IBOutlet UITableView * colorsTableView;
@@ -32,15 +35,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+    [self setEdgesForExtendedLayout:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight];
+    self.title = @"Colors";
     [_searchBar setText:@""];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    
     // Check if colors is nil, we need to refresh data if it's the case
     // We then check the database, and only proceed to do a web request
     // if the database doesn't return any results
@@ -86,7 +87,8 @@
     AFHTTPClient * client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_BASE]];
     // Launch progressHUD and request
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
-    [client getPath:@"colors" parameters:@{@"format":@"json", @"keywords":_searchBar.text}
+    [client getPath:@"colors"
+         parameters:@{@"format":@"json", @"keywords":_searchBar.text}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 // Refresh the data with the new values
@@ -102,7 +104,8 @@
                 [_colorsTableView reloadData];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];
                 
-            }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            }
+            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [SVProgressHUD showErrorWithStatus:error.localizedDescription];
             }];
 }
@@ -130,8 +133,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Color * selectedColor = colors[indexPath.row];
-    [[Routable sharedRouter] open:[NSString stringWithFormat:@"color/%@", selectedColor.id]];
+    ColorDetailVC * detailController = [ColorDetailVC new];
+    detailController.color = colors[indexPath.row];
+    [self.navigationController pushViewController:detailController animated:YES];
 }
 
 #pragma mark - SearchBar methods
