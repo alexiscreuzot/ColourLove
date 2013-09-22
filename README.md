@@ -1,4 +1,4 @@
-# ColourLove
+# ColourLove (updated for iOS7)
 
 This project only purpose is to provide brief, clean and readable code in a dummy application.
 It is heavily library based and MVC oriented and shows mecanisms like downloading, storing and displaying data from a webservice.
@@ -103,12 +103,11 @@ Dependencies are managed with CocoaPods, which I recommend you to have a look at
     open ColourLove.xcworkspace
 
 
-
 ## Screenshots
 
 ### ColorsVC
-![1](http://i.imgur.com/NjKmLxF.png)
+![1](http://i.imgur.com/Ebf13GA.png)
 ### PalettesVC
-![2](http://i.imgur.com/XuCxahd.png)
+![2](http://i.imgur.com/9l81UDy.png)
 ### PatternsVC
-![3](http://i.imgur.com/nSeREk0.png)
+![3](http://i.imgur.com/4PhR3oJ.png)
