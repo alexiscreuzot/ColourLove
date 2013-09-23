@@ -71,11 +71,14 @@
                 [Palette dropAllRecords];
                 palettes = [NSMutableArray array];
                 
-                for(NSDictionary * palDict in [operation.responseString JSONValue]){
-                    Palette * pal = [[Palette newRecord]initWithDict:palDict];
-                    [pal save];
-                    [palettes addObject:pal];
-                }
+                // Transaction to limit write hits on SQLite DB
+                [ActiveRecord transaction:^{
+                    for(NSDictionary * palDict in [operation.responseString JSONValue]){
+                        Palette * pal = [[Palette newRecord]initWithDict:palDict];
+                        [pal save];
+                        [palettes addObject:pal];
+                    }
+                }];
                 
                 [_palettesTableView reloadData];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];

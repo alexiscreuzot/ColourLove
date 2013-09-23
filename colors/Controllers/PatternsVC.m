@@ -39,7 +39,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{    
+{
     // Check if patterns is nil, we need to refresh data if it's the case
     // We then check the database, and only proceed to do a web request
     // if the database doesn't return any results
@@ -68,12 +68,14 @@
                 [Pattern dropAllRecords];
                 patterns = [NSMutableArray array];
                 
-                for(NSDictionary * palDict in [operation.responseString JSONValue]){
-                    Pattern * pal = [[Pattern newRecord] initWithDict:palDict];
-                    [pal save];
-                    [patterns addObject:pal];
-                }
-                
+                // Transaction to limit write hits on SQLite DB
+                [ActiveRecord transaction:^{
+                    for(NSDictionary * palDict in [operation.responseString JSONValue]){
+                        Pattern * pal = [[Pattern newRecord] initWithDict:palDict];
+                        [pal save];
+                        [patterns addObject:pal];
+                    }
+                }];
                 [_patternsCollectionView reloadData];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];
                 
@@ -96,8 +98,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PatternCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PatternCell" forIndexPath:indexPath];
-        
-    Pattern * currentPattern = patterns[indexPath.row];    
+    
+    Pattern * currentPattern = patterns[indexPath.row];
     [cell.patternImage setImageWithURL:[NSURL URLWithString:currentPattern.imageUrl]];
     
     return cell;

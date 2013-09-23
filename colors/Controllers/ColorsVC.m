@@ -51,6 +51,7 @@
         }else{
             colors = [Color allRecords].mutableCopy;
             [_colorsTableView reloadData];
+            NSLog(@"%@", [colors JSONRepresentation]);
         }
     }
 }
@@ -95,11 +96,14 @@
                 [Color dropAllRecords];
                 colors = [NSMutableArray array];
                 
-                for(NSDictionary * colorDict in [operation.responseString JSONValue]){
-                    Color * col = [[Color newRecord]initWithDict:colorDict];
-                    [col save];
-                    [colors addObject:col];
-                }
+                // Transaction to limit write hits on SQLite DB
+                [ActiveRecord transaction:^{
+                    for(NSDictionary * colorDict in [operation.responseString JSONValue]){
+                        Color * col = [[Color newRecord]initWithDict:colorDict];
+                        [col save];
+                        [colors addObject:col];
+                    }
+                }];
                 
                 [_colorsTableView reloadData];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];
