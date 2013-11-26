@@ -111,3 +111,8 @@ Dependencies are managed with CocoaPods, which I recommend you to have a look at
 ![2](http://i.imgur.com/9l81UDy.png)
 ### PatternsVC
 ![3](http://i.imgur.com/4PhR3oJ.png)
+
+
+##Support a fellow developer !
+If this code helped you for your project, consider contributing or donating some BTC to `1A37Am7UsJZYdpVGWRiye2v9JBthQrYw9N`
+Thanks !
