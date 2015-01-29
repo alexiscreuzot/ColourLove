@@ -2,6 +2,7 @@
 
 This project only purpose is to provide brief, clean and readable code in a dummy application.
 It is heavily library based and MVC oriented and shows mecanisms like downloading, storing and displaying data from a webservice.
+All data is handled with the [Realm library](http://realm.io/), using the Active Record Pattern for cleaner code while still providing excellent performances.
 
 You are of course invited to use, fork and improve this project using your own knowledge.
 
