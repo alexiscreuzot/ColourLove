@@ -14,11 +14,19 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
-            <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+            <rect key="frame" x="0.0" y="64" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jsT-TS-Yal">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="THX-h8-Kp3"/>
+                        <outlet property="delegate" destination="-1" id="T0y-iE-gH6"/>
+                    </connections>
+                </tableView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="5ad-6K-Fv1">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="zBq-RN-VxV"/>
                     </constraints>
@@ -27,14 +35,6 @@
                         <outlet property="delegate" destination="-1" id="mg9-2p-QLw"/>
                     </connections>
                 </searchBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jsT-TS-Yal">
-                    <rect key="frame" x="0.0" y="44" width="600" height="492"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="THX-h8-Kp3"/>
-                        <outlet property="delegate" destination="-1" id="T0y-iE-gH6"/>
-                    </connections>
-                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -42,13 +42,13 @@
                 <constraint firstItem="5ad-6K-Fv1" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="K7W-rw-I8u"/>
                 <constraint firstItem="jsT-TS-Yal" firstAttribute="leading" secondItem="5ad-6K-Fv1" secondAttribute="leading" id="eHl-Vb-c9m"/>
                 <constraint firstItem="jsT-TS-Yal" firstAttribute="trailing" secondItem="5ad-6K-Fv1" secondAttribute="trailing" id="gCF-18-FHr"/>
-                <constraint firstItem="jsT-TS-Yal" firstAttribute="top" secondItem="5ad-6K-Fv1" secondAttribute="top" constant="44" id="xYu-7w-Fqu"/>
+                <constraint firstItem="jsT-TS-Yal" firstAttribute="top" secondItem="5ad-6K-Fv1" secondAttribute="top" constant="-64" id="xYu-7w-Fqu"/>
                 <constraint firstAttribute="bottom" secondItem="jsT-TS-Yal" secondAttribute="bottom" id="yeV-TI-B4I"/>
-                <constraint firstItem="5ad-6K-Fv1" firstAttribute="top" secondItem="1" secondAttribute="top" id="z6O-X9-8jN"/>
+                <constraint firstItem="5ad-6K-Fv1" firstAttribute="top" secondItem="1" secondAttribute="top" constant="64" id="z6O-X9-8jN"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-            <point key="canvasLocation" x="32" y="414"/>
+            <point key="canvasLocation" x="-102" y="374"/>
         </view>
     </objects>
 </document>

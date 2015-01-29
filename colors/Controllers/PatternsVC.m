@@ -30,9 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setEdgesForExtendedLayout:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight];
     self.title = @"Patterns";
     [_searchBar setText:@""];
+    self.patternsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
     [self.patternsCollectionView registerClass:[PatternCell class] forCellWithReuseIdentifier:@"PatternCell"];
 }
 

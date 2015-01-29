@@ -32,9 +32,9 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    [self setEdgesForExtendedLayout:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight];
     self.title = @"Colors";
 	[self.searchBar setText:@""];
+    self.colorsTableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
 }
 
 - (void)viewWillAppear:(BOOL)animated

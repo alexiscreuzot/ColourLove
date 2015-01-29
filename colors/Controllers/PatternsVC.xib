@@ -15,11 +15,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
-            <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+            <rect key="frame" x="0.0" y="64" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                    <rect key="frame" x="0.0" y="44" width="600" height="492"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5">
                         <size key="itemSize" width="100" height="100"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -33,7 +33,7 @@
                     </connections>
                 </collectionView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KUN-PU-N4I">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="WcO-P6-yPp"/>
@@ -44,13 +44,13 @@
             <constraints>
                 <constraint firstItem="4" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="92Q-Ga-ZFe"/>
                 <constraint firstAttribute="bottom" secondItem="4" secondAttribute="bottom" id="GlV-Gf-Mwh"/>
-                <constraint firstItem="KUN-PU-N4I" firstAttribute="top" secondItem="1" secondAttribute="top" id="NxJ-MI-G6X"/>
+                <constraint firstItem="KUN-PU-N4I" firstAttribute="top" secondItem="1" secondAttribute="top" constant="64" id="NxJ-MI-G6X"/>
                 <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="evl-4I-YUv"/>
                 <constraint firstItem="KUN-PU-N4I" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="fqu-CE-MQ7"/>
-                <constraint firstItem="4" firstAttribute="top" secondItem="1" secondAttribute="top" constant="44" id="i2k-fw-Nr5"/>
+                <constraint firstItem="4" firstAttribute="top" secondItem="1" secondAttribute="top" id="i2k-fw-Nr5"/>
                 <constraint firstAttribute="trailing" secondItem="KUN-PU-N4I" secondAttribute="trailing" id="wHU-1J-GbC"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
             <point key="canvasLocation" x="424" y="490"/>
         </view>
