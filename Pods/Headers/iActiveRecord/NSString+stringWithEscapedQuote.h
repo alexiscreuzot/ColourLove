@@ -1,1 +1,0 @@
-../../iActiveRecord/iActiveRecord/NSString+stringWithEscapedQuote.h

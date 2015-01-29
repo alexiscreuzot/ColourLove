@@ -36,7 +36,7 @@
 {
     _color = color;
     [self.titleLabel setText:color.title];
-    [self.subtitleLabel setText:[NSString stringWithFormat:@"#%@",color.hexString]];
+    [self.subtitleLabel setText:[NSString stringWithFormat:@"#%@",color.hex]];
     [self.colorView setBackgroundColor:color.rgbColor];
 }
 

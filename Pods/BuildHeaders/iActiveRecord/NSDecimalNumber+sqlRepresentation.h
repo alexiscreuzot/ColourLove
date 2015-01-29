@@ -1,1 +1,0 @@
-../../iActiveRecord/iActiveRecord/NSDecimalNumber+sqlRepresentation.h

@@ -16,12 +16,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@interface Color : ActiveRecord
-@property (strong,nonatomic) NSString * title;
-@property (strong,nonatomic) NSString * userName;
-@property (strong,nonatomic) NSString * hexString;
+@interface Color : RLMObject
 
-- (id) initWithDict:(NSDictionary *) dict;
+@property NSInteger id;
+@property NSString * title;
+@property NSString * userName;
+@property NSString * hex;
 
 - (UIColor *)rgbColor;
 - (UIColor *)inversedColor;

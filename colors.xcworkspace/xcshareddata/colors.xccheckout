@@ -10,29 +10,29 @@
 	<string>colors</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8216A7FE-4A2A-4EA6-951E-2E2061CD3156</key>
+		<key>0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6</key>
 		<string>ssh://github.com/kirualex/ColourLove.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>colors.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8216A7FE-4A2A-4EA6-951E-2E2061CD3156</key>
+		<key>0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/kirualex/ColourLove.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8216A7FE-4A2A-4EA6-951E-2E2061CD3156</string>
+	<string>0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8216A7FE-4A2A-4EA6-951E-2E2061CD3156</string>
+			<string>0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ColourLove</string>
 		</dict>

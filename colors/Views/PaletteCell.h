@@ -24,5 +24,5 @@
 @property (strong,nonatomic) IBOutlet UILabel * subtitleLabel;
 @property (strong,nonatomic) IBOutlet UIImageView * paletteImage;
 - (void) displayForPalette:(Palette *) palette;
-- (void) setPaletteDisplayed:(BOOL) displayed animated:(BOOL) animated;
+- (void) toggleSelectedAnimated:(BOOL) animated;
 @end

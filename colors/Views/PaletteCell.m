@@ -18,7 +18,9 @@
 
 #import "PaletteCell.h"
 
-@implementation PaletteCell
+@implementation PaletteCell{
+    Palette * palette;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -29,8 +31,9 @@
     return self;
 }
 
-- (void) displayForPalette:(Palette *) palette
+- (void) displayForPalette:(Palette *) pal
 {
+    palette = pal;
     [self.titleLabel setText:palette.title];
     [self.subtitleLabel setText:palette.userName];
     [self.paletteImage setImageWithURL:[NSURL URLWithString:palette.imageUrl]];
@@ -51,26 +54,23 @@
 
 - (void) setPaletteDisplayed:(BOOL) displayed animated:(BOOL) animated
 {
-    float duration;
-    if(animated){
-        duration = .3f;
-    }else{
-        duration = 0;
-    }
+    float duration = (animated)? .3 : 0;
     
     [UIView animateWithDuration:duration animations:^{
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
         
         CGRect frame = self.paletteImage.frame;
-        if(displayed){
-            frame.origin.x = 0;
-            frame.size.width = 320;            
-        }else{
-            frame.origin.x = 220;
-            frame.size.width = 100;
-        }
+        
+        frame.origin.x = (palette.selected)? 0 : 220;
+        frame.size.width = (palette.selected)? 320 : 100;
+        
         self.paletteImage.frame = frame;
     }];
+}
+
+- (void) toggleSelectedAnimated:(BOOL) animated{
+    
+    palette.selected = !palette.selected;
+    [self setPaletteDisplayed:palette.selected animated:YES];
 }
 
 @end

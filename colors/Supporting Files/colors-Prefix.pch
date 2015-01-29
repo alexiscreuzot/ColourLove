@@ -16,7 +16,7 @@
     #import <SBJson/SBJSON.h>
     #import <AFNetworking/AFNetworking.h>
     #import <SVProgressHUD/SVProgressHUD.h>
-    #import <iActiveRecord/ActiveRecord.h>
+    #import <Realm/Realm.h>
 
     // Helpers
     #import "UIColor+Utilities.h"

@@ -20,20 +20,20 @@
 
 @implementation Color
 
++ (NSString *) primaryKey {
+    return @"id";
+}
 
-- (id) initWithDict:(NSDictionary *) dict{
-    if(self = [super init]){
-        self.id = dict[@"id"];
-        self.title = dict[@"title"];
-        self.userName = dict[@"userName"];
-        self.hexString = dict[@"hex"];
-    }
-    return self;
++ (NSDictionary *)JSONInboundMappingDictionary {
+    return @{@"id": @"id",
+             @"title": @"title",
+             @"userName": @"userName",
+             @"hex": @"hex"};
 }
 
 - (UIColor *)rgbColor
 {
-    return [UIColor colorWithHexString:self.hexString];
+    return [UIColor colorWithHexString:self.hex];
 }
 
 - (UIColor *)inversedColor

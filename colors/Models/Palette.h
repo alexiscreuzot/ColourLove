@@ -16,14 +16,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import <Foundation/Foundation.h>
 
-@interface Palette : ActiveRecord
-@property (strong,nonatomic) NSString * title;
-@property (strong,nonatomic) NSString * userName;
-@property (strong,nonatomic) NSString * imageUrl;
+@interface Palette : RLMObject
+
+@property NSInteger id;
+@property NSString * title;
+@property NSString * userName;
+@property NSString * imageUrl;
 @property (nonatomic) BOOL selected;
-
-- (id) initWithDict:(NSDictionary *) dict;
     
 @end

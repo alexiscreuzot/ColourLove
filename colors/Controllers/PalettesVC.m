@@ -26,7 +26,7 @@
 @end
 
 @implementation PalettesVC{
-    NSMutableArray * palettes;
+    NSMutableArray * palettes; // Allow some caching
 }
 
 - (void)viewDidLoad
@@ -41,14 +41,24 @@
 {
     [super viewWillAppear:animated];
     
+    [self populateTableView];
+}
+
+
+- (void) populateTableView
+{
     // Check if palettes is nil, we need to refresh data if it's the case
     // We then check the database, and only proceed to do a web request
     // if the database doesn't return any results
     if(!palettes){
-        if([Palette count] == 0){
+        if([Palette allObjects].count == 0){
             [self requestPalettes];
         }else{
-            palettes = [Palette allRecords].mutableCopy;
+            palettes = @[].mutableCopy;
+            for(Palette * pal in [Palette allObjects]){
+                [palettes addObject:pal];
+            }
+            
             [_palettesTableView reloadData];
         }
     }else{
@@ -67,20 +77,18 @@
     [client getPath:@"palettes" parameters:@{@"format":@"json", @"keywords":_searchBar.text}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
+                NSArray * result = [operation.responseString JSONValue];
+                
                 // Refresh the data with the new values
-                [Palette dropAllRecords];
-                palettes = [NSMutableArray array];
+                [[RLMRealm defaultRealm] beginWriteTransaction];
+                [[RLMRealm defaultRealm] deleteObjects:[Palette allObjects]];
+                for(NSDictionary * obj in result){
+                    [Palette createOrUpdateInDefaultRealmWithObject:obj];
+                }
+                [[RLMRealm defaultRealm] commitWriteTransaction];
                 
-                // Transaction to limit write hits on SQLite DB
-                [ActiveRecord transaction:^{
-                    for(NSDictionary * palDict in [operation.responseString JSONValue]){
-                        Palette * pal = [[Palette newRecord]initWithDict:palDict];
-                        [pal save];
-                        [palettes addObject:pal];
-                    }
-                }];
                 
-                [_palettesTableView reloadData];
+                [self populateTableView];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];
                 
             }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -112,10 +120,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PaletteCell * cell =(PaletteCell *) [_palettesTableView cellForRowAtIndexPath:indexPath];
-    Palette * selectedPalette = palettes[indexPath.row];
-    selectedPalette.selected = ! selectedPalette.selected;
-    [cell setPaletteDisplayed:selectedPalette.selected animated:YES];
+    PaletteCell * cell = (PaletteCell *) [_palettesTableView cellForRowAtIndexPath:indexPath];
+    [cell toggleSelectedAnimated:YES];
 }
 
 #pragma mark - SearchBar methods

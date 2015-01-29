@@ -16,15 +16,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import "ActiveRecord.h"
 
-@interface User : ActiveRecord
+@interface User : RLMObject
 
-@property (strong,nonatomic) NSString * userName;
-@property (strong,nonatomic) NSString * location;
-@property (strong,nonatomic) NSNumber * rating;
-@property (strong,nonatomic) NSNumber * numColors;
-
-- (id) initWithDict:(NSDictionary *) dict;
+@property NSString * userName;
+@property NSString * location;
+@property NSInteger rating;
+@property NSInteger numColors;
     
 @end

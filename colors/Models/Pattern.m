@@ -20,6 +20,10 @@
 
 @implementation Pattern
 
++ (NSString *) primaryKey {
+    return @"id";
+}
+
 - (id) initWithDict:(NSDictionary *) dict{
     if(self = [super init]){
         self.id = dict[@"id"];

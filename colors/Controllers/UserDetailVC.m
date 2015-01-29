@@ -35,8 +35,8 @@
     self.title = _user.userName;
     
     [_locationLabel setText:_user.location];
-    [_ratingLabel setText:[_user.rating stringValue]];
-    [_colorNumberLabel setText:[_user.numColors stringValue]];
+    [_ratingLabel setText:[@(_user.rating) stringValue]];
+    [_colorNumberLabel setText:[@(_user.numColors) stringValue]];
 }
 
 

@@ -1,22 +1,28 @@
 PODS:
   - AFNetworking (1.3.2)
-  - iActiveRecord (1.3.2)
+  - Realm (0.90.3):
+    - Realm/Headers (= 0.90.3)
+  - Realm+JSON (0.2.5):
+    - Realm (~> 0.90)
+  - Realm/Headers (0.90.3)
   - SBJson (3.1)
   - SDWebImage (2.4)
   - SVProgressHUD (0.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 1.3)
-  - iActiveRecord (~> 1.3)
+  - Realm (~> 0.90)
+  - Realm+JSON (~> 0.2)
   - SBJson (~> 3.1)
   - SDWebImage (~> 2.4)
   - SVProgressHUD (~> 0.9)
 
 SPEC CHECKSUMS:
-  AFNetworking: 7f9bcd7c287a75476cd5c61e82fd3380e93e4c54
-  iActiveRecord: 2319d12de2f6cf4e2552e9e91bd5d67c71e9fbeb
-  SBJson: 0c76c1e4ec7c4fbf9c9c0d9fa78cb3c5743cbe9a
-  SDWebImage: 83073356b7aa4aa66a5e69447fb9aedef6a7f306
-  SVProgressHUD: 03d4845ec8e64591726428a08236c6a5489d45f8
+  AFNetworking: 13fd672bb1f6919946d259d97f31000015680dfa
+  Realm: 47528af12cc437c6fd0edbfd4c7c980b0b6ead2c
+  Realm+JSON: a47b93f0f37beba7dd4686f5f4b6813d83f78134
+  SBJson: aa76eec7a683de372cdf36282ec575d28a885c9a
+  SDWebImage: 4d551d8dbef2216ff7a9a8b8ae47ccfdd7a7ee45
+  SVProgressHUD: adf9def97327df88dee15e9ad8033fde6961f7b4
 
-COCOAPODS: 0.24.0
+COCOAPODS: 0.36.0.beta.1

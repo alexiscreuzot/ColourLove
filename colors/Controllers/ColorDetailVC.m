@@ -46,7 +46,7 @@
     self.view.backgroundColor = _color.rgbColor;
     self.title = _color.title;
     
-    [_hexLabel setText:[NSString stringWithFormat:@"#%@",_color.hexString]];
+    [_hexLabel setText:[NSString stringWithFormat:@"#%@",_color.hex]];
     [_hexLabel setTextColor:_color.contrastColor];
     
     [_userButton setTitle:_color.userName forState:UIControlStateNormal];
@@ -65,14 +65,17 @@
     NSString * uri = [NSString stringWithFormat:@"lover/%@", [_color.userName urlencode]];
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [client getPath:uri parameters:@{@"format":@"json"}
-            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
                 
                 // Dismiss loader
                 [SVProgressHUD dismiss];
                 
+                NSArray * obj = [operation.responseString JSONValue];
+
                 // Save user in database
-                user = [[User newRecord] initWithDict:[operation.responseString JSONValue][0]];
-                [user save];
+                [[RLMRealm defaultRealm] beginWriteTransaction];
+                [User createOrUpdateInDefaultRealmWithObject:obj.firstObject];
+                [[RLMRealm defaultRealm] commitWriteTransaction];
                 
                 // Load
                 UserDetailVC * userController = [UserDetailVC new];
@@ -88,7 +91,7 @@
 
 - (IBAction) selectUserInfos
 {
-    user = [[[[User lazyFetcher] whereField:@"userName" equalToValue:_color.userName] fetchRecords] first];
+    user = [[User objectsWhere:F(@"userName = '%@'",_color.userName)] firstObject];
     if(user){
         UserDetailVC * userController = [UserDetailVC new];
         userController.user = user;

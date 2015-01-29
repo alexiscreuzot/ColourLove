@@ -25,9 +25,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *patternsCollectionView;
 @end
 
-@implementation PatternsVC{
-    NSMutableArray * patterns;
-}
+@implementation PatternsVC
 
 - (void)viewDidLoad
 {
@@ -43,14 +41,11 @@
     // Check if patterns is nil, we need to refresh data if it's the case
     // We then check the database, and only proceed to do a web request
     // if the database doesn't return any results
-    if(!patterns){
-        if([Pattern count] == 0){
+        if([[Pattern allObjects] count] == 0){
             [self requestPatterns];
         }else{
-            patterns = [Pattern allRecords].mutableCopy;
             [_patternsCollectionView reloadData];
         }
-    }
 }
 
 #pragma mark - Networking
@@ -64,18 +59,16 @@
     [client getPath:@"patterns" parameters:@{@"format":@"json", @"keywords":_searchBar.text}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
-                // Refresh the data with the new values
-                [Pattern dropAllRecords];
-                patterns = [NSMutableArray array];
+                NSArray * result = [operation.responseString JSONValue];
                 
-                // Transaction to limit write hits on SQLite DB
-                [ActiveRecord transaction:^{
-                    for(NSDictionary * palDict in [operation.responseString JSONValue]){
-                        Pattern * pal = [[Pattern newRecord] initWithDict:palDict];
-                        [pal save];
-                        [patterns addObject:pal];
-                    }
-                }];
+                // Refresh the data with the new values
+                [[RLMRealm defaultRealm] beginWriteTransaction];
+                [[RLMRealm defaultRealm] deleteObjects:[Pattern allObjects]];
+                for(NSDictionary * obj in result){
+                    [Pattern createOrUpdateInDefaultRealmWithObject:obj];
+                }
+                [[RLMRealm defaultRealm] commitWriteTransaction];
+                
                 [_patternsCollectionView reloadData];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];
                 
@@ -93,13 +86,13 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return patterns.count;
+    return [Pattern allObjects].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PatternCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PatternCell" forIndexPath:indexPath];
     
-    Pattern * currentPattern = patterns[indexPath.row];
+    Pattern * currentPattern = [Pattern allObjects][indexPath.row];
     [cell.patternImage setImageWithURL:[NSURL URLWithString:currentPattern.imageUrl]];
     
     return cell;
