@@ -40,11 +40,11 @@
 {
     // We check the database, and proceed to do a web request
     // if the database doesn't return any results
-        if([[Pattern allObjects] count] == 0){
-            [self requestPatterns];
-        }else{
-            [_patternsCollectionView reloadData];
-        }
+    if([[Pattern allObjects] count] == 0){
+        [self requestPatterns];
+    }else{
+        [_patternsCollectionView reloadData];
+    }
 }
 
 #pragma mark - Networking
@@ -65,6 +65,7 @@
                 [[RLMRealm defaultRealm] deleteObjects:[Pattern allObjects]];
                 for(NSDictionary * obj in JSON){
                     [Pattern createOrUpdateInDefaultRealmWithObject:obj];
+                    
                 }
                 [[RLMRealm defaultRealm] commitWriteTransaction];
                 

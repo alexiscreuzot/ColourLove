@@ -57,27 +57,6 @@ static NSString * CellIdentifier = @"ColorCell";
 	[self.colorsTableView deselectRowAtIndexPath:self.colorsTableView.indexPathForSelectedRow animated:YES];
 }
 
-#pragma mark - Local data
-
-// In case of no internet connection
-// parse json from a local file
-- (void)parseColorsJSON
-{
-	NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"colors" ofType:@"json"];
-	NSString *content = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:nil];
-	NSArray *colorsArray = [content JSONValue];
-
-	[[RLMRealm defaultRealm] beginWriteTransaction];
-	[[RLMRealm defaultRealm] deleteObjects:[Color allObjects]];
-	for (NSDictionary *obj in colorsArray) {
-		[Color createOrUpdateInDefaultRealmWithObject:obj];
-	}
-	[[RLMRealm defaultRealm] commitWriteTransaction];
-
-	[_colorsTableView reloadData];
-	[SVProgressHUD showSuccessWithStatus:@"Done"];
-}
-
 #pragma mark - Networking
 
 - (void)requestColors
@@ -90,12 +69,12 @@ static NSString * CellIdentifier = @"ColorCell";
 	[client getPath:@"colors" parameters:@{@"format" : @"json",@"keywords" : _searchBar.text}
             success: ^(AFHTTPRequestOperation *operation, id responseObject) {
         
-	    NSArray *result = [operation.responseString JSONValue];
+        NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
 
 	    // Refresh the data with the new values
 	    [[RLMRealm defaultRealm] beginWriteTransaction];
 	    [[RLMRealm defaultRealm] deleteObjects:[Color allObjects]];
-	    for (NSDictionary *obj in result) {
+	    for (NSDictionary *obj in JSON) {
 	        [Color createOrUpdateInDefaultRealmWithObject:obj];
 		}
 	    [[RLMRealm defaultRealm] commitWriteTransaction];

@@ -53,6 +53,7 @@
     tabController = [UITabBarController new];
     tabController.viewControllers = @[colorNavigationController,paletteNavigationController,patternNavigationController];
 
+    
     // Set rootViewController and display
     self.window.rootViewController = tabController;
     [self.window makeKeyAndVisible];
