@@ -65,16 +65,16 @@
     NSString * uri = [NSString stringWithFormat:@"lover/%@", [_color.userName urlencode]];
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [client getPath:uri parameters:@{@"format":@"json"}
-            success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
+            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 // Dismiss loader
                 [SVProgressHUD dismiss];
                 
-                NSArray * obj = [operation.responseString JSONValue];
-
+                NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                
                 // Save user in database
                 [[RLMRealm defaultRealm] beginWriteTransaction];
-                [User createOrUpdateInDefaultRealmWithObject:obj.firstObject];
+                [User createOrUpdateInDefaultRealmWithObject:JSON.firstObject];
                 [[RLMRealm defaultRealm] commitWriteTransaction];
                 
                 // Load

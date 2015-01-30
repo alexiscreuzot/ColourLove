@@ -73,12 +73,12 @@ static NSString * CellIdentifier = @"PaletteCell";
     [client getPath:@"palettes" parameters:@{@"format":@"json", @"keywords":_searchBar.text}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
-                NSArray * result = [operation.responseString JSONValue];
+                NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                 
                 // Refresh the data with the new values
                 [[RLMRealm defaultRealm] beginWriteTransaction];
                 [[RLMRealm defaultRealm] deleteObjects:[Palette allObjects]];
-                for(NSDictionary * obj in result){
+                for(NSDictionary * obj in JSON){
                     [Palette createOrUpdateInDefaultRealmWithObject:obj];
                 }
                 [[RLMRealm defaultRealm] commitWriteTransaction];
