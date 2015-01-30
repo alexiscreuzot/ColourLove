@@ -32,11 +32,14 @@
 {
     [super viewWillAppear:animated];
     [self setEdgesForExtendedLayout:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight];
-    self.title = _user.userName;
     
-    [_locationLabel setText:_user.location];
-    [_ratingLabel setText:[@(_user.rating) stringValue]];
-    [_colorNumberLabel setText:[@(_user.numColors) stringValue]];
+    User * user = [User objectsWhere:F(@"userName = '%@'", self.username)].firstObject;
+    
+    self.title = user.userName;
+    
+    [_locationLabel setText:user.location];
+    [_ratingLabel setText:[@(user.rating) stringValue]];
+    [_colorNumberLabel setText:[@(user.numColors) stringValue]];
 }
 
 

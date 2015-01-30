@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *palettesTableView;
 @end
 
+static NSString * CellIdentifier = @"PaletteCell";
+
 @implementation PalettesVC{
     NSMutableArray * palettes; // Allow some caching
 }
@@ -35,34 +37,27 @@
     self.title = @"Palettes";
     [_searchBar setText:@""];
     self.palettesTableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+    [self.palettesTableView registerClass:[PaletteCell class] forCellReuseIdentifier:CellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [self populateTableView];
 }
 
-
 - (void) populateTableView
 {
-    // Check if palettes is nil, we need to refresh data if it's the case
-    // We then check the database, and only proceed to do a web request
+    // We check the database, and proceed to do a web request
     // if the database doesn't return any results
-    if(!palettes){
-        if([Palette allObjects].count == 0){
-            [self requestPalettes];
-        }else{
-            palettes = @[].mutableCopy;
-            for(Palette * pal in [Palette allObjects]){
-                [palettes addObject:pal];
-            }
-            
-            [_palettesTableView reloadData];
-        }
+    if([Palette allObjects].count == 0){
+        [self requestPalettes];
     }else{
-        [_palettesTableView deselectRowAtIndexPath:_palettesTableView.indexPathForSelectedRow animated:YES];
+        palettes = @[].mutableCopy;
+        for(Palette * pal in [Palette allObjects]){
+            [palettes addObject:pal];
+        }
+        [_palettesTableView reloadData];
     }
 }
 
@@ -72,6 +67,7 @@
 {
     // Init client
     AFHTTPClient * client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_BASE]];
+    
     // Launch progressHUD and request
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [client getPath:@"palettes" parameters:@{@"format":@"json", @"keywords":_searchBar.text}
@@ -86,7 +82,6 @@
                     [Palette createOrUpdateInDefaultRealmWithObject:obj];
                 }
                 [[RLMRealm defaultRealm] commitWriteTransaction];
-                
                 
                 [self populateTableView];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];
@@ -105,22 +100,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * CellIdentifier = @"PaletteCell";
     PaletteCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if(cell == nil){
-        cell = [[PaletteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
     Palette * currentPalette = palettes[indexPath.row];
     [cell displayForPalette:currentPalette];
-    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PaletteCell * cell = (PaletteCell *) [_palettesTableView cellForRowAtIndexPath:indexPath];
+    PaletteCell * cell = (PaletteCell *) [self.palettesTableView cellForRowAtIndexPath:indexPath];
     [cell toggleSelectedAnimated:YES];
 }
 
@@ -128,12 +116,12 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [self requestPalettes];
-    [_searchBar resignFirstResponder];
+    [self.searchBar resignFirstResponder];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    [_searchBar resignFirstResponder];
+    [self.searchBar resignFirstResponder];
 }
 
 @end

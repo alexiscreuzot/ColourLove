@@ -78,9 +78,7 @@
                 [[RLMRealm defaultRealm] commitWriteTransaction];
                 
                 // Load
-                UserDetailVC * userController = [UserDetailVC new];
-                userController.user = user;
-                [self.navigationController pushViewController:userController animated:YES];
+                [self selectUserInfos];
                 
             }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [SVProgressHUD showErrorWithStatus:error.localizedDescription];
@@ -94,7 +92,7 @@
     user = [[User objectsWhere:F(@"userName = '%@'",_color.userName)] firstObject];
     if(user){
         UserDetailVC * userController = [UserDetailVC new];
-        userController.user = user;
+        userController.username = _color.userName;
         [self.navigationController pushViewController:userController animated:YES];
     }else{
         [self requestUserInfos];

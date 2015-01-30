@@ -59,7 +59,6 @@
     [UIView animateWithDuration:duration animations:^{
         
         CGRect frame = self.paletteImage.frame;
-        
         frame.origin.x = (palette.selected)? 0 : 220;
         frame.size.width = (palette.selected)? 320 : 100;
         
@@ -67,8 +66,8 @@
     }];
 }
 
-- (void) toggleSelectedAnimated:(BOOL) animated{
-    
+- (void) toggleSelectedAnimated:(BOOL) animated
+{
     palette.selected = !palette.selected;
     [self setPaletteDisplayed:palette.selected animated:YES];
 }

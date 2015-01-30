@@ -55,16 +55,11 @@
 - (void) colorBackground:(BOOL) doColor
 {
     [UIView animateWithDuration:.3f animations:^{
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-        if(doColor){
-            self.backgroundColor = _color.rgbColor;
-            self.titleLabel.textColor = _color.contrastColor;
-            self.subtitleLabel.textColor = _color.contrastColor;
-        }else{
-            self.backgroundColor = [UIColor whiteColor];
-            self.titleLabel.textColor = [UIColor blackColor];
-            self.subtitleLabel.textColor = [UIColor lightGrayColor];
-        }
+        
+        self.backgroundColor = (doColor)? _color.rgbColor : [UIColor whiteColor];
+        self.titleLabel.textColor = (doColor)? _color.contrastColor : [UIColor blackColor];
+        self.subtitleLabel.textColor = (doColor)? _color.contrastColor : [UIColor lightGrayColor];
+
     }];
 }
 

@@ -19,5 +19,5 @@
 #import"User.h"
 
 @interface UserDetailVC : UIViewController
-@property (strong,nonatomic) User * user;
+@property (strong,nonatomic) NSString * username;
 @end

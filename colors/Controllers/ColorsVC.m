@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @end
 
+static NSString * CellIdentifier = @"ColorCell";
+
 @implementation ColorsVC
 
 - (void)viewDidLoad {
@@ -35,17 +37,16 @@
     self.title = @"Colors";
 	[self.searchBar setText:@""];
     self.colorsTableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+    [self.colorsTableView registerClass:[ColorCell class] forCellReuseIdentifier:CellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	// Check if colors is nil, we need to refresh data if it's the case
-	// We then check the database, and only proceed to do a web request
+	// We check the database, and proceed to do a web request
 	// if the database doesn't return any results
 	if ([Color allObjects].count == 0) {
         [self requestColors];
-	}
-	else {
+	}else {
 		[self.colorsTableView reloadData];
 	}
 }
@@ -115,16 +116,8 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *CellIdentifier = @"ColorCell";
-	ColorCell *cell =
-	    [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-	if (cell == nil) {
-		cell = [[ColorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier :CellIdentifier];
-	}
-
+	ColorCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	[cell displayForColor:[Color allObjects][indexPath.row]];
-
 	return cell;
 }
 

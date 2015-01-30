@@ -38,8 +38,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    // Check if patterns is nil, we need to refresh data if it's the case
-    // We then check the database, and only proceed to do a web request
+    // We check the database, and proceed to do a web request
     // if the database doesn't return any results
         if([[Pattern allObjects] count] == 0){
             [self requestPatterns];
@@ -79,11 +78,6 @@
 
 #pragma mark - CollectionView datasource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return [Pattern allObjects].count;
@@ -91,10 +85,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PatternCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PatternCell" forIndexPath:indexPath];
-    
     Pattern * currentPattern = [Pattern allObjects][indexPath.row];
     [cell.patternImage setImageWithURL:[NSURL URLWithString:currentPattern.imageUrl]];
-    
     return cell;
 }
 
