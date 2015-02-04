@@ -76,12 +76,12 @@ static NSString * CellIdentifier = @"PaletteCell";
                 NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                 
                 // Refresh the data with the new values
-                [[RLMRealm defaultRealm] beginWriteTransaction];
-                [[RLMRealm defaultRealm] deleteObjects:[Palette allObjects]];
-                for(NSDictionary * obj in JSON){
-                    [Palette createOrUpdateInDefaultRealmWithObject:obj];
-                }
-                [[RLMRealm defaultRealm] commitWriteTransaction];
+                [[RLMRealm defaultRealm] transactionWithBlock:^{
+                    [[RLMRealm defaultRealm] deleteObjects:[Palette allObjects]];
+                    for(NSDictionary * obj in JSON){
+                        [Palette createOrUpdateInDefaultRealmWithObject:obj];
+                    }
+                }];
                 
                 [self populateTableView];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];

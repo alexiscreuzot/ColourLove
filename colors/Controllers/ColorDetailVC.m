@@ -73,9 +73,10 @@
                 NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                 
                 // Save user in database
-                [[RLMRealm defaultRealm] beginWriteTransaction];
-                [User createOrUpdateInDefaultRealmWithObject:JSON.firstObject];
-                [[RLMRealm defaultRealm] commitWriteTransaction];
+                [[RLMRealm defaultRealm] transactionWithBlock:^{
+                    [User createOrUpdateInDefaultRealmWithObject:JSON.firstObject];
+
+                }];
                 
                 // Load
                 [self selectUserInfos];

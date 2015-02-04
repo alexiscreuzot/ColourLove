@@ -72,12 +72,12 @@ static NSString * CellIdentifier = @"ColorCell";
         NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
 
 	    // Refresh the data with the new values
-	    [[RLMRealm defaultRealm] beginWriteTransaction];
-	    [[RLMRealm defaultRealm] deleteObjects:[Color allObjects]];
-	    for (NSDictionary *obj in JSON) {
-	        [Color createOrUpdateInDefaultRealmWithObject:obj];
-		}
-	    [[RLMRealm defaultRealm] commitWriteTransaction];
+	    [[RLMRealm defaultRealm] transactionWithBlock:^{
+            [[RLMRealm defaultRealm] deleteObjects:[Color allObjects]];
+            for (NSDictionary *obj in JSON) {
+                [Color createOrUpdateInDefaultRealmWithObject:obj];
+            }
+        }];
 
 	    [_colorsTableView reloadData];
 	    [SVProgressHUD showSuccessWithStatus:@"Done"];

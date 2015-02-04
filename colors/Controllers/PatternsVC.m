@@ -61,13 +61,12 @@
                 NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                 
                 // Refresh the data with the new values
-                [[RLMRealm defaultRealm] beginWriteTransaction];
-                [[RLMRealm defaultRealm] deleteObjects:[Pattern allObjects]];
-                for(NSDictionary * obj in JSON){
-                    [Pattern createOrUpdateInDefaultRealmWithObject:obj];
-                    
-                }
-                [[RLMRealm defaultRealm] commitWriteTransaction];
+                [[RLMRealm defaultRealm] transactionWithBlock:^{
+                    [[RLMRealm defaultRealm] deleteObjects:[Pattern allObjects]];
+                    for(NSDictionary * obj in JSON){
+                        [Pattern createOrUpdateInDefaultRealmWithObject:obj];
+                    }
+                }];
                 
                 [_patternsCollectionView reloadData];
                 [SVProgressHUD showSuccessWithStatus:@"Done"];

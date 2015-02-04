@@ -332,6 +332,11 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Alex;
+				TargetAttributes = {
+					FA40EC1E1666A8670005052F = {
+						DevelopmentTeam = ZAMD7Q9KYY;
+					};
+				};
 			};
 			buildConfigurationList = FA40EC191666A8670005052F /* Build configuration list for PBXProject "colors" */;
 			compatibilityVersion = "Xcode 3.2";
