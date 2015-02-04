@@ -28,7 +28,7 @@
 
 + (NSArray *)ignoredProperties
 {
-    return @[@"selected",@"test"];
+    return @[@"selected"];
 }
 
 
