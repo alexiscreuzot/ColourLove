@@ -36,7 +36,7 @@
     palette = pal;
     [self.titleLabel setText:palette.title];
     [self.subtitleLabel setText:palette.userName];
-    [self.paletteImage setImageWithURL:[NSURL URLWithString:palette.imageUrl]];
+    [self.paletteImage sd_setImageWithURL:[NSURL URLWithString:palette.imageUrl]];
     [self setPaletteDisplayed:palette.selected animated:NO];
 }
 

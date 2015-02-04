@@ -1,62 +1,41 @@
 Web Image
 =========
+[![Build Status](http://img.shields.io/travis/rs/SDWebImage/master.svg?style=flat)](https://travis-ci.org/rs/SDWebImage)
+[![Pod Version](http://img.shields.io/cocoapods/v/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
+[![Pod Platform](http://img.shields.io/cocoapods/p/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
+[![Pod License](http://img.shields.io/cocoapods/l/SDWebImage.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-This library provides a category for UIImageVIew with support for remote images coming from the web.
+This library provides a category for UIImageView with support for remote images coming from the web.
 
 It provides:
 
 - An UIImageView category adding web image and cache management to the Cocoa Touch framework
 - An asynchronous image downloader
 - An asynchronous memory + disk image caching with automatic cache expiration handling
-- A garantie that the same URL won't be downloaded several times
-- A garantie that bogus URLs won't be retried again and again
+- Animated GIF support
+- WebP format support
+- A background image decompression
+- A guarantee that the same URL won't be downloaded several times
+- A guarantee that bogus URLs won't be retried again and again
+- A guarantee that main thread will never be blocked
 - Performances!
+- Use GCD and ARC
+- Arm64 support
 
-Motivation
+NOTE: The version 3.0 of SDWebImage isn't fully backward compatible with 2.0 and requires iOS 5.1.1
+minimum deployement version. If you need iOS < 5.0 support, please use the last [2.0 version](https://github.com/rs/SDWebImage/tree/2.0-compat).
+
+[How is SDWebImage better than X?](https://github.com/rs/SDWebImage/wiki/How-is-SDWebImage-better-than-X%3F)
+
+Who Use It
 ----------
 
-As a dummy Objective-C developer working on my first iPhone application for my company
-([Dailymotion][]), I've been very frustrated by the lack of support in the Cocoa Touch framework for
-UITableView with remote images. After some googling, I found lot of forums and blogs coming with
-their solution, most of the time based on asynchronous usage have NSURLConnection, but none provides
-a simple library doing the work of async image grabbing + caching for you.
+Find out [who uses SDWebImage](https://github.com/rs/SDWebImage/wiki/Who-Uses-SDWebImage) and add your app to the list.
 
-Actually there is one in the famous [Three20][] framework by [Joe Hewitt][], but it's yet massive
-and undocumented piece of code. You can't import just the the libraries you want without taking the
-whole framework (damn #import "TTGlobal.h"). Anyway, the [Three20][] implementation is based on
-NSURLConnection, and I soon discovered this solution wasn't ideal, keep reading to find out why.
+How To Use
+----------
 
-As a hurried beginner in iPhone development, I couldn't admit to implement my own async image
-grabber with caching support as my first steps in this new world. Thus, I asked for help to my good
-friend Sebastien Flory ([Fraggle][]), who was working on his great iPhone game ([Urban Rivals][], a
-future app-store hit) since almost a year. He spent quite an amount of time on implementing the very
-same solution for his needs, and was kind enough to give me his implementation for my own use. This
-worked quite well and allowed me to concentrate on other parts of my application. But when I started
-to compare my application with its direct competitor - the built-in Youtube application - I was very
-unhappy with the loading speed of the images. After some network sniffing, I found that every HTTP
-requests for my images was 10 times slower than Youtube's ones... On my own network, Youtube was 10
-time faster than my own servers... WTF??
-
-In fact, my servers were well but a lot of latency was added to the requests, certainly because my
-application wasn't responsive enough to handle the requests at full speed. At this moment, I
-understood something important, asynchronous NSURLConnections are tied to the main runloop in the
-NSEventTrackingRunLoopMode. As explained in the documentation, this runloop mode is affected by
-UI events:
-
-> Cocoa uses this mode to restrict incoming events during mouse-dragging loops and other sorts of
-> user interface tracking loops.
-
-A simple test to recognize an application using NSURLConnection in its default mode to load there
-remote images is to scroll the UITableView with your finger to disclose an unloaded image, and to
-keep your finger pressed on the screen. If the image doesn't load until you release you finger,
-you've got one (try with the Facebook app for instance). It took me quite some time to understand
-the reason for this lagging issue. Actually I first used NSOperation to workaround this issue.
-
-This technic combined with an image cache instantly gave a lot of responsiveness to my app.
-I thought this lib could benefits to a lot of other Cocoa Touch application so I open-sourced it.
-
-How To Use It
--------------
+API documentation is available at [http://hackemist.com/SDWebImage/doc/](http://hackemist.com/SDWebImage/doc/)
 
 ### Using UIImageView+WebCache category with UITableView
 
@@ -64,105 +43,238 @@ Just #import the UIImageView+WebCache.h header, and call the setImageWithURL:pla
 method from the tableView:cellForRowAtIndexPath: UITableViewDataSource method. Everything will be
 handled for you, from async downloads to caching management.
 
-    #import "UIImageView+WebCache.h"
+```objective-c
+#import <SDWebImage/UIImageView+WebCache.h>
 
-    ...
+...
 
-    - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *MyIdentifier = @"MyIdentifier";
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+
+    if (cell == nil)
     {
-        static NSString *MyIdentifier = @"MyIdentifier";
-
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-
-        if (cell == nil)
-        {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                           reuseIdentifier:MyIdentifier] autorelease];
-        }
-
-        // Here we use the new provided setImageWithURL: method to load the web image
-        [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"]
-                       placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
-
-        cell.textLabel.text = @"My Text";
-        return cell;
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                       reuseIdentifier:MyIdentifier] autorelease];
     }
+
+    // Here we use the new provided setImageWithURL: method to load the web image
+    [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"]
+                   placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+
+    cell.textLabel.text = @"My Text";
+    return cell;
+}
+```
+
+### Using blocks
+
+With blocks, you can be notified about the image download progress and whenever the image retrival
+has completed with success or not:
+
+```objective-c
+// Here we use the new provided setImageWithURL: method to load the web image
+[cell.imageView setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"]
+               placeholderImage:[UIImage imageNamed:@"placeholder.png"]
+                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {... completion code here ...}];
+```
+
+Note: neither your success nor failure block will be call if your image request is canceled before completion.
 
 ### Using SDWebImageManager
 
 The SDWebImageManager is the class behind the UIImageView+WebCache category. It ties the
-asynchronous downloader with the image cache store. You can use this classe directly to benefits
-from web image downloading with caching in another context than a UIView (ie: with Cocos).
+asynchronous downloader with the image cache store. You can use this class directly to benefit
+from web image downloading with caching in another context than a UIView (ie: with Cocoa).
 
 Here is a simple example of how to use SDWebImageManager:
 
-    SDWebImageManager *manager = [SDWebImageManager sharedManager];
-
-    UIImage *cachedImage = [manager imageWithURL:url];
-
-    if (cachedImage)
-    {
-        // Use the cached image immediatly
-    }
-    else
-    {
-        // Start an async download
-        [manager downloadWithURL:url delegate:self];
-    }
-
-Your class will have to implement the SDWebImageManagerDelegate protocol, and to implement the
-webImageManager:didFinishWithImage: method from this protocol:
-
-    - (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
-    {
-        // Do something with the downloaded image
-    }
+```objective-c
+SDWebImageManager *manager = [SDWebImageManager sharedManager];
+[manager downloadWithURL:imageURL
+                 options:0
+                 progress:^(NSInteger receivedSize, NSInteger expectedSize)
+                 {
+                     // progression tracking code
+                 }
+                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished)
+                 {
+                     if (image)
+                     {
+                         // do something with image
+                     }
+                 }];
+```
 
 ### Using Asynchronous Image Downloader Independently
 
-It is possible to use the async image downloader independently. You just have to create an instance
-of SDWebImageDownloader using its convenience constructor downloaderWithURL:delegate:.
+It's also possible to use the async image downloader independently:
 
-    downloader = [SDWebImageDownloader downloaderWithURL:url delegate:self];
-
-The download will start immediately and the imageDownloader:didFinishWithImage: method from the
-SDWebImageDownloaderDelegate protocol will be called as soon as the download of image is completed.
+```objective-c
+[SDWebImageDownloader.sharedDownloader downloadImageWithURL:imageURL
+                                                    options:0
+                                                   progress:^(NSInteger receivedSize, NSInteger expectedSize)
+                                                   {
+                                                       // progression tracking code
+                                                   }
+                                                   completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished)
+                                                   {
+                                                       if (image && finished)
+                                                       {
+                                                           // do something with image
+                                                       }
+                                                   }];
+```
 
 ### Using Asynchronous Image Caching Independently
 
-It is also possible to use the NSOperation based image cache store independently. SDImageCache
+It is also possible to use the aync based image cache store independently. SDImageCache
 maintains a memory cache and an optional disk cache. Disk cache write operations are performed
 asynchronous so it doesn't add unnecessary latency to the UI.
 
 The SDImageCache class provides a singleton instance for convenience but you can create your own
-instance if you want to create separated cache namespaces.
+instance if you want to create separated cache namespace.
 
-To lookup the cache, you use the imageForKey: method. If the method returns nil, it means the cache
-doesn't currently own the image. You are thus responsible of generating and caching it. The cache
+To lookup the cache, you use the `queryDiskCacheForKey:done:` method. If the method returns nil, it means the cache
+doesn't currently own the image. You are thus responsible for generating and caching it. The cache
 key is an application unique identifier for the image to cache. It is generally the absolute URL of
 the image.
 
-    UIImage *myCachedImage = [[SDImageCache sharedImageCache] imageFromKey:myCacheKey];
+```objective-c
+SDImageCache *imageCache = [[SDImageCache alloc] initWithNamespace:@"myNamespace"];
+[imageCache queryDiskCacheForKey:myCacheKey done:^(UIImage *image)
+{
+    // image is not nil if image was found
+}];
+```
 
 By default SDImageCache will lookup the disk cache if an image can't be found in the memory cache.
-You can prevent this from happening by calling the alternative method imageFromKey:fromDisk: with a
-negative second argument.
+You can prevent this from happening by calling the alternative method `imageFromMemoryCacheForKey:`.
 
 To store an image into the cache, you use the storeImage:forKey: method:
 
-    [[SDImageCache sharedImageCache] storeImage:myImage forKey:myCacheKey];
+```objective-c
+[[SDImageCache sharedImageCache] storeImage:myImage forKey:myCacheKey];
+```
 
 By default, the image will be stored in memory cache as well as on disk cache (asynchronously). If
 you want only the memory cache, use the alternative method storeImage:forKey:toDisk: with a negative
 third argument.
+
+### Using cache key filter
+
+Sometime, you may not want to use the image URL as cache key because part of the URL is dynamic
+(i.e.: for access control purpose). SDWebImageManager provides a way to set a cache key filter that
+takes the NSURL as input, and output a cache key NSString.
+
+The following example sets a filter in the application delegate that will remove any query-string from
+the URL before to use it as a cache key:
+
+```objective-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    SDWebImageManager.sharedManager.cacheKeyFilter:^(NSURL *url)
+    {
+        url = [[[NSURL alloc] initWithScheme:url.scheme host:url.host path:url.path] autorelease];
+        return [url absoluteString];
+    };
+
+    // Your app init code...
+    return YES;
+}
+```
+
+
+Common Problems
+---------------
+
+### Using dynamic image size with UITableViewCell
+
+UITableView determins the size of the image by the first image set for a cell. If your remote images
+don't have the same size as your placeholder image, you may experience strange anamorphic scaling issue.
+The following article gives a way to workaround this issue:
+
+[http://www.wrichards.com/blog/2011/11/sdwebimage-fixed-width-cell-images/](http://www.wrichards.com/blog/2011/11/sdwebimage-fixed-width-cell-images/)
+
+
+### Handle image refresh
+
+SDWebImage does very aggressive caching by default. It ignores all kind of caching control header returned by the HTTP server and cache the returned images with no time restriction. It implies your images URLs are static URLs pointing to images that never change. If the pointed image happen to change, some parts of the URL should change accordingly.
+
+If you don't control the image server you're using, you may not be able to change the URL when its content is updated. This is the case for Facebook avatar URLs for instance. In such case, you may use the `SDWebImageRefreshCached` flag. This will slightly degrade the performance but will respect the HTTP caching control headers:
+
+``` objective-c
+[imageView setImageWithURL:[NSURL URLWithString:@"https://graph.facebook.com/olivier.poitrey/picture"]
+          placeholderImage:[UIImage imageNamed:@"avatar-placeholder.png"]
+                   options:SDWebImageRefreshCached];
+```
+
+### Add a progress indicator
+
+See this category: https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage
+
+Installation
+------------
+
+There are three ways to use SDWebImage in your project:
+- using Cocoapods
+- copying all the files into your project
+- importing the project as a static library
+
+### Installation with CocoaPods
+
+[CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries in your projects. See the [Get Started](http://cocoapods.org/#get_started) section for more details.
+
+#### Podfile
+```
+platform :ios, '6.1'
+pod 'SDWebImage', '~>3.6'
+```
+
+### Add the SDWebImage project to your project
+
+- Download and unzip the last version of the framework from the [download page](https://github.com/rs/SDWebImage/releases)
+- Right-click on the project navigator and select "Add Files to "Your Project":
+- In the dialog, select SDWebImage.framework:
+- Check the "Copy items into destination group's folder (if needed)" checkbox
+
+### Add dependencies
+
+- In you application project app’s target settings, find the "Build Phases" section and open the "Link Binary With Libraries" block:
+- Click the "+" button again and select the "ImageIO.framework", this is needed by the progressive download feature:
+
+### Add Linker Flag
+
+Open the "Build Settings" tab, in the "Linking" section, locate the "Other Linker Flags" setting and add the "-ObjC" flag:
+
+![Other Linker Flags](http://dl.dropbox.com/u/123346/SDWebImage/10_other_linker_flags.jpg)
+
+Alternatively, if this causes compilation problems with frameworks that extend optional libraries, such as Parse,  RestKit or opencv2, instead of the -ObjC flag use:
+
+```
+-force_load SDWebImage.framework/Versions/Current/SDWebImage
+```
+
+### Import headers in your source files
+
+In the source files where you need to use the library, import the header file:
+
+```objective-c
+#import <SDWebImage/UIImageView+WebCache.h>
+```
+
+### Build Project
+
+At this point your workspace should build without error. If you are having problem, post to the Issue and the
+community can help you solve it.
 
 Future Enhancements
 -------------------
 
 - LRU memory cache cleanup instead of reset on memory warning
 
-[Dailymotion]: http://www.dailymotion.com
-[Fraggle]: http://fraggle.squarespace.com
-[Urban Rivals]: http://fraggle.squarespace.com/blog/2009/9/15/almost-done-here-is-urban-rivals-iphone-trailer.html
-[Three20]: http://groups.google.com/group/three20
-[Joe Hewitt]: http://www.joehewitt.com
+## Licenses
+
+All source code is licensed under the [MIT License](https://raw.github.com/rs/SDWebImage/master/LICENSE).

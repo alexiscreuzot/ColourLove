@@ -23,19 +23,21 @@ PODS:
   - Realm (0.90.4):
     - Realm/Headers (= 0.90.4)
   - Realm/Headers (0.90.4)
-  - SDWebImage (2.4)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
   - SVProgressHUD (1.1.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - Realm (~> 0.90)
-  - SDWebImage (= 2.4)
+  - SDWebImage (~> 3.7)
   - SVProgressHUD (~> 1.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   Realm: 43ec5595f51849fabccd2213cfad90bc4ff9a3c0
-  SDWebImage: 4d551d8dbef2216ff7a9a8b8ae47ccfdd7a7ee45
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
 
 COCOAPODS: 0.36.0.beta.1

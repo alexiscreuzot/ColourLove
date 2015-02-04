@@ -84,7 +84,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PatternCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PatternCell" forIndexPath:indexPath];
     Pattern * currentPattern = [Pattern allObjects][indexPath.row];
-    [cell.patternImage setImageWithURL:[NSURL URLWithString:currentPattern.imageUrl]];
+    [cell.patternImage sd_setImageWithURL:[NSURL URLWithString:currentPattern.imageUrl]];
     return cell;
 }
 
