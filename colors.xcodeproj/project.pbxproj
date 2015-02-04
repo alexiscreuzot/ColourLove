@@ -34,7 +34,6 @@
 		FA40EC301666A8670005052F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40EC2F1666A8670005052F /* main.m */; };
 		FA40EC341666A8670005052F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40EC331666A8670005052F /* AppDelegate.m */; };
 		FA461DA41A822BAA00DD855B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA461DA31A822BAA00DD855B /* Images.xcassets */; };
-		FA461DA61A822C0300DD855B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA461DA51A822C0300DD855B /* Default-568h@2x.png */; };
 		FA977D391705810C003E5AE2 /* ColorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977D371705810C003E5AE2 /* ColorsVC.m */; };
 		FA977D3A1705810C003E5AE2 /* ColorsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D381705810C003E5AE2 /* ColorsVC.xib */; };
 		FA977D441705B901003E5AE2 /* ColorDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977D431705B901003E5AE2 /* ColorDetailVC.xib */; };
@@ -88,7 +87,6 @@
 		FA40EC321666A8670005052F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA40EC331666A8670005052F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FA461DA31A822BAA00DD855B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FA461DA51A822C0300DD855B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA977D361705810C003E5AE2 /* ColorsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsVC.h; sourceTree = "<group>"; };
 		FA977D371705810C003E5AE2 /* ColorsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorsVC.m; sourceTree = "<group>"; };
 		FA977D381705810C003E5AE2 /* ColorsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorsVC.xib; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 		FA40EC141666A8670005052F = {
 			isa = PBXGroup;
 			children = (
-				FA461DA51A822C0300DD855B /* Default-568h@2x.png */,
 				FA40EC291666A8670005052F /* Classes */,
 				FA1D624416FF2C1D0028D563 /* Resources */,
 				FA40EC2A1666A8670005052F /* Supporting Files */,
@@ -341,7 +338,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA40EC2E1666A8670005052F /* InfoPlist.strings in Resources */,
-				FA461DA61A822C0300DD855B /* Default-568h@2x.png in Resources */,
 				FA461DA41A822BAA00DD855B /* Images.xcassets in Resources */,
 				FA2A550C170175F60030C203 /* ColorCell.xib in Resources */,
 				FA35FFE0170411820071FF2F /* UserDetailVC.xib in Resources */,

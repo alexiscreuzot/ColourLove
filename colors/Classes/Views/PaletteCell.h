@@ -23,6 +23,9 @@
 @property (strong,nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong,nonatomic) IBOutlet UILabel * subtitleLabel;
 @property (strong,nonatomic) IBOutlet UIImageView * paletteImage;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
+
 - (void) displayForPalette:(Palette *) palette;
 - (void) toggleSelectedAnimated:(BOOL) animated;
 @end

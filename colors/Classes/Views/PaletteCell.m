@@ -37,6 +37,7 @@
     [self.titleLabel setText:palette.title];
     [self.subtitleLabel setText:palette.userName];
     [self.paletteImage sd_setImageWithURL:[NSURL URLWithString:palette.imageUrl]];
+    
     [self setPaletteDisplayed:palette.selected animated:NO];
 }
 
@@ -55,14 +56,9 @@
 - (void) setPaletteDisplayed:(BOOL) displayed animated:(BOOL) animated
 {
     float duration = (animated)? .3 : 0;
-    
     [UIView animateWithDuration:duration animations:^{
-        
-        CGRect frame = self.paletteImage.frame;
-        frame.origin.x = (palette.selected)? 0 : 220;
-        frame.size.width = (palette.selected)? 320 : 100;
-        
-        self.paletteImage.frame = frame;
+        self.widthConstraint.constant = (palette.selected)? self.frame.size.width : 100;
+        [self layoutIfNeeded];
     }];
 }
 

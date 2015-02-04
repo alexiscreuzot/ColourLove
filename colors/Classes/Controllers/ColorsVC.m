@@ -61,8 +61,6 @@ static NSString * CellIdentifier = @"ColorCell";
 
 - (void)requestColors
 {
-    
-    
 	// Launch progressHUD and request
 	[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:URL_BASE];

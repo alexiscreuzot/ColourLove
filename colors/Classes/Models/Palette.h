@@ -23,6 +23,7 @@
 @property NSString * title;
 @property NSString * userName;
 @property NSString * imageUrl;
+
 @property (nonatomic) BOOL selected;
     
 @end
