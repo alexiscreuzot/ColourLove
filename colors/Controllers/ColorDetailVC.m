@@ -43,16 +43,16 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = _color.rgbColor;
-    self.title = _color.title;
+    self.view.backgroundColor = self.color.rgbColor;
+    self.title = self.color.title;
     
     [_hexLabel setText:[NSString stringWithFormat:@"#%@",_color.hex]];
-    [_hexLabel setTextColor:_color.contrastColor];
+    [_hexLabel setTextColor:self.color.contrastColor];
     
-    [_userButton setTitle:_color.userName forState:UIControlStateNormal];
-    [_userButton setTitleColor:_color.contrastColor forState:UIControlStateNormal];
+    [_userButton setTitle:self.color.userName forState:UIControlStateNormal];
+    [_userButton setTitleColor:self.color.contrastColor forState:UIControlStateNormal];
     [_userButton.layer setCornerRadius:5];
-    [_userButton.layer setBorderColor:_color.contrastColor.CGColor];
+    [_userButton.layer setBorderColor:self.color.contrastColor.CGColor];
     [_userButton.layer setBorderWidth:1];
 }
 
@@ -62,7 +62,7 @@
 {
     // Init client
     AFHTTPClient * client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_BASE]];
-    NSString * uri = [NSString stringWithFormat:@"lover/%@", [_color.userName urlencode]];
+    NSString * uri = [NSString stringWithFormat:@"lover/%@", [self.color.userName urlencode]];
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [client getPath:uri parameters:@{@"format":@"json"}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -75,7 +75,6 @@
                 // Save user in database
                 [[RLMRealm defaultRealm] transactionWithBlock:^{
                     [User createOrUpdateInDefaultRealmWithObject:JSON.firstObject];
-
                 }];
                 
                 // Load
@@ -93,7 +92,7 @@
     user = [[User objectsWhere:F(@"userName = '%@'",_color.userName)] firstObject];
     if(user){
         UserDetailVC * userController = [UserDetailVC new];
-        userController.username = _color.userName;
+        userController.username = self.color.userName;
         [self.navigationController pushViewController:userController animated:YES];
     }else{
         [self requestUserInfos];

@@ -35,7 +35,7 @@ static NSString * CellIdentifier = @"PaletteCell";
 {
     [super viewDidLoad];
     self.title = @"Palettes";
-    [_searchBar setText:@""];
+    [self.searchBar setText:@""];
     self.palettesTableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
     [self.palettesTableView registerClass:[PaletteCell class] forCellReuseIdentifier:CellIdentifier];
 }
@@ -57,7 +57,7 @@ static NSString * CellIdentifier = @"PaletteCell";
         for(Palette * pal in [Palette allObjects]){
             [palettes addObject:pal];
         }
-        [_palettesTableView reloadData];
+        [self.palettesTableView reloadData];
     }
 }
 
