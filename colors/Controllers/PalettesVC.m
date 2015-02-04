@@ -65,16 +65,12 @@ static NSString * CellIdentifier = @"PaletteCell";
 
 - (void) requestPalettes
 {
-    // Init client
-    AFHTTPClient * client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_BASE]];
-    
     // Launch progressHUD and request
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
-    [client getPath:@"palettes" parameters:@{@"format":@"json", @"keywords":_searchBar.text}
-            success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                
-                NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-                
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:URL_BASE];
+    [manager GET:@"palettes" parameters:@{@"format" : @"json",@"keywords" : _searchBar.text}
+            success:^(AFHTTPRequestOperation *operation, NSArray * JSON) {
+                                
                 // Refresh the data with the new values
                 [[RLMRealm defaultRealm] transactionWithBlock:^{
                     [[RLMRealm defaultRealm] deleteObjects:[Palette allObjects]];

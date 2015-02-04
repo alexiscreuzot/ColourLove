@@ -26,7 +26,6 @@
 
 @implementation AppDelegate{
     UITabBarController * tabController;
-    AFHTTPClient * client;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

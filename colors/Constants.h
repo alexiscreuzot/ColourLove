@@ -16,6 +16,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#define URLIFY(urlString) [NSURL URLWithString:urlString]
 #define F(string, args...) [NSString stringWithFormat:string, args]
 
-#define URL_BASE @"http://www.colourlovers.com/api"
+#define URL_BASE URLIFY(@"http://www.colourlovers.com/api")

@@ -61,16 +61,14 @@
 - (void) requestUserInfos
 {
     // Init client
-    AFHTTPClient * client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_BASE]];
-    NSString * uri = [NSString stringWithFormat:@"lover/%@", [self.color.userName urlencode]];
+    NSString * uri = F(@"lover/%@", [self.color.userName urlencode]);
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
-    [client getPath:uri parameters:@{@"format":@"json"}
-            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:URL_BASE];
+    [manager GET:uri parameters:@{@"format" : @"json"}
+            success:^(AFHTTPRequestOperation *operation, NSArray *JSON ) {
                 
                 // Dismiss loader
                 [SVProgressHUD dismiss];
-                
-                NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                 
                 // Save user in database
                 [[RLMRealm defaultRealm] transactionWithBlock:^{

@@ -61,29 +61,28 @@ static NSString * CellIdentifier = @"ColorCell";
 
 - (void)requestColors
 {
-	// Init client
-	AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_BASE]];
+    
     
 	// Launch progressHUD and request
 	[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
-	[client getPath:@"colors" parameters:@{@"format" : @"json",@"keywords" : _searchBar.text}
-            success: ^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSArray *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-
-	    // Refresh the data with the new values
-	    [[RLMRealm defaultRealm] transactionWithBlock:^{
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:URL_BASE];
+    [manager GET:@"colors" parameters:@{@"format" : @"json",@"keywords" : _searchBar.text}
+         success:^(AFHTTPRequestOperation *operation, NSArray * JSON) {
+             
+        // Refresh the data with the new values
+        [[RLMRealm defaultRealm] transactionWithBlock:^{
             [[RLMRealm defaultRealm] deleteObjects:[Color allObjects]];
             for (NSDictionary *obj in JSON) {
                 [Color createOrUpdateInDefaultRealmWithObject:obj];
             }
         }];
-
-	    [_colorsTableView reloadData];
-	    [SVProgressHUD showSuccessWithStatus:@"Done"];
-	} failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
-	    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-	}];
+        
+        [_colorsTableView reloadData];
+        [SVProgressHUD showSuccessWithStatus:@"Done"];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+    }];
 }
 
 #pragma mark - TableView datasource

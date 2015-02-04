@@ -16,6 +16,7 @@
     #import <AFNetworking/AFNetworking.h>
     #import <Realm/Realm.h>
     #import <SVProgressHUD/SVProgressHUD.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
     // Helpers
     #import "UIColor+Utilities.h"
